@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/09/2014 10:58:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Pessoa" table="Pessoa" catalog="VoceAluga">
+        <id name="pessoaOid" type="int">
+            <column name="pessoa_oid" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" not-null="true" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="12" not-null="true" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" length="10" not-null="true" />
+        </property>
+        <property name="carteira" type="string">
+            <column name="carteira" length="10" />
+        </property>
+        <property name="categoriaCarteira" type="java.lang.Character">
+            <column name="categoriaCarteira" length="1" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="8" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

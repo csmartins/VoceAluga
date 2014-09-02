@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/09/2014 10:58:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Carro" table="Carro" catalog="VoceAluga">
+        <id name="carroOid" type="long">
+            <column name="carro_oid" />
+            <generator class="assigned" />
+        </id>
+        <property name="modelo" type="string">
+            <column name="modelo" length="45" not-null="true" />
+        </property>
+        <property name="placa" type="string">
+            <column name="placa" length="45" not-null="true" />
+        </property>
+        <property name="ano" type="int">
+            <column name="ano" not-null="true" />
+        </property>
+        <property name="ultimaManutencao" type="date">
+            <column name="ultimaManutencao" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -8,15 +8,15 @@ import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 import br.model.Pessoa;
+import br.model.PessoaDAO;
 
 public class ControladorCadastroCliente
 {
 	ValidadorDadosCadastro validadorDadosCadastro = new ValidadorDadosCadastro();
+	
+	PessoaDAO pessoaDAO = new PessoaDAO();
 
 	private boolean cadastroValido = true;
-
-	EntityManager entityManager;
-	EntityManagerFactory entityManagerFactory;
 
 	public void validarNome(String nome)
 	{
@@ -98,22 +98,9 @@ public class ControladorCadastroCliente
 	public void cadastrar(String nome, String cpf, String rg, String carteira,
 			String categoriaCarteira, String telefone, String email)
 	{
-		int oid = new Random().nextInt();
-
-		if (oid < 0)
-			oid = oid * (-1);
-
-		Pessoa cliente = new Pessoa(oid, nome, cpf, rg, carteira,
+		Pessoa cliente = new Pessoa(0, nome, cpf, rg, carteira,
 				categoriaCarteira.toCharArray()[0], telefone, email);
-
-		entityManagerFactory = Persistence.createEntityManagerFactory("Pessoa");
-		entityManager = entityManagerFactory.createEntityManager();
-
-		entityManager.getTransaction().begin();
-		entityManager.persist(cliente);
-		entityManager.getTransaction().commit();
-
-		entityManager.close();
-
+		
+		pessoaDAO.persistirPessoa(cliente);
 	}
 }

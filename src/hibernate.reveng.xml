@@ -3,31 +3,85 @@
 
 <hibernate-reverse-engineering>
 <type-mapping>
-	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="DATE" hibernate-type="date" length="10"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="DATE" hibernate-type="date" length="10"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="BIT" hibernate-type="boolean"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
 		not-null="true">
 	</sql-type>
 	<sql-type jdbc-type="VARCHAR" hibernate-type="string"
 		not-null="true">
 	</sql-type>
-	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="12"
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
 		not-null="true">
 	</sql-type>
-	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="10"
-		not-null="true">
-	</sql-type>
-	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="10"
+	<sql-type jdbc-type="INTEGER" hibernate-type="java.lang.Integer"
 		not-null="false">
 	</sql-type>
-	<sql-type jdbc-type="CHAR" hibernate-type="java.lang.Character"
-		length="1" not-null="false">
-	</sql-type>
-	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="8"
+	<sql-type jdbc-type="INTEGER" hibernate-type="java.lang.Integer"
 		not-null="false">
 	</sql-type>
 	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
-		not-null="false">
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="45"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="DATE" hibernate-type="date" length="10"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="DATE" hibernate-type="date" length="10"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="BIT" hibernate-type="boolean"
+		not-null="true">
 	</sql-type>
 </type-mapping>
+
+
+
 
 
 

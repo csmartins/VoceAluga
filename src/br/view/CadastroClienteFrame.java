@@ -45,7 +45,8 @@ public class CadastroClienteFrame extends JInternalFrame
 	{
 		setTitle("Cadastro de Cliente");
 		setBorder(null);
-		setBounds(100, 100, 608, 460);
+		setClosable(true);
+		setBounds(100, 100, 582, 330);
 		
 		JPanel panelDadosCadastrais = new JPanel();
 		
@@ -72,7 +73,7 @@ public class CadastroClienteFrame extends JInternalFrame
 		panelBotoes.setLayout(null);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		criarEventoBotaoSalvar(btnSalvar);
+		criarEventoBotaoSalvarCadastroCliente(btnSalvar);
 		btnSalvar.setBounds(283, 12, 134, 50);
 		panelBotoes.add(btnSalvar);
 		
@@ -192,7 +193,7 @@ public class CadastroClienteFrame extends JInternalFrame
 		getContentPane().setLayout(groupLayout);
 	}
 
-	private void criarEventoBotaoSalvar(JButton btnSalvar)
+	private void criarEventoBotaoSalvarCadastroCliente(JButton btnSalvar)
 	{
 		controladorCadastroCliente = new ControladorCadastroCliente();
 		

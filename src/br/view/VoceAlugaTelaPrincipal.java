@@ -20,6 +20,7 @@ public class VoceAlugaTelaPrincipal
 	private JMenuItem menuItemCadastro;
 	
 	private CadastroClienteFrame cadastroClienteFrame;
+	private CadastroVeiculoFrame cadastroVeiculoFrame;
 
 	/**
 	 * Launch the application.
@@ -72,25 +73,50 @@ public class VoceAlugaTelaPrincipal
 		menuBar.add(menuCliente);
 		
 		JMenuItem menuItemCadastro = new JMenuItem("Cadastro");
-		criarEventoBotaoCadastro(menuItemCadastro, desktopPane);
+		criarEventoBotaoCadastroCliente(menuItemCadastro, desktopPane);
 		menuCliente.add(menuItemCadastro);
 		
-		JMenuItem menuItemEdicao = new JMenuItem("Edição");
-		menuCliente.add(menuItemEdicao);
+		JMenu mnVeculo = new JMenu("Veículo");
+		menuBar.add(mnVeculo);
+		
+		JMenuItem menuItemCadastroVeiculo = new JMenuItem("Cadastro");
+		criarEventoBotaoCadastroVeiculo(menuItemCadastroVeiculo, desktopPane);
+		mnVeculo.add(menuItemCadastroVeiculo);
 		
 		JMenu menuAluguel = new JMenu("Aluguel");
 		menuBar.add(menuAluguel);
 		
+		JMenuItem menuReserva = new JMenuItem("Reserva");
+		menuAluguel.add(menuReserva);
+		
+		JMenuItem menuAlugar = new JMenuItem("Alugar");
+		menuAluguel.add(menuAlugar);
+		
 		JMenu menuPagamento = new JMenu("Pagamento");
 		menuBar.add(menuPagamento);
-		
-		JMenu menuReserva = new JMenu("Reserva");
-		menuBar.add(menuReserva);
 	}
 
-	private void criarEventoBotaoCadastro(JMenuItem menuItemCadastro, final JDesktopPane desktopPane)
+	private void criarEventoBotaoCadastroVeiculo(
+			JMenuItem menuItemCadastroVeiculo, final JDesktopPane desktopPane)
 	{
-		menuItemCadastro.addActionListener(new ActionListener()
+		menuItemCadastroVeiculo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				if(cadastroVeiculoFrame == null || cadastroVeiculoFrame.isClosed())
+				{
+					cadastroVeiculoFrame = new CadastroVeiculoFrame();
+					desktopPane.add(cadastroVeiculoFrame);
+					cadastroVeiculoFrame.show();
+					cadastroVeiculoFrame.setLocation(0, 0);
+				}
+			}
+		});
+	}
+
+	private void criarEventoBotaoCadastroCliente(JMenuItem menuItemCadastroCliente, final JDesktopPane desktopPane)
+	{
+		menuItemCadastroCliente.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{

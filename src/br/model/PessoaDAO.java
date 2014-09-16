@@ -1,6 +1,5 @@
 package br.model;
 
-import java.util.Random;
 
 public class PessoaDAO extends AbstractDAO
 {
@@ -18,13 +17,5 @@ public class PessoaDAO extends AbstractDAO
 		entityManager.close();
 	}
 	
-	private int criarOid()
-	{
-		int oid = new Random().nextInt();
-
-		if (oid < 0)
-			oid = oid * (-1);
-		
-		return oid;
-	}
+	
 }

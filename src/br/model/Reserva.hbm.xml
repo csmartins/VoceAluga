@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Reserva" table="Reserva" catalog="VoceAluga">
+        <id name="reservaOid" type="string">
+            <column name="reserva_oid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pessoa" class="br.model.Pessoa" fetch="select">
+            <column name="pessoa_oid" length="45" not-null="true" />
+        </many-to-one>
+        <many-to-one name="carro" class="br.model.Carro" fetch="select">
+            <column name="carro_oid" length="45" not-null="true" />
+        </many-to-one>
+        <property name="dataInicio" type="date">
+            <column name="dataInicio" length="10" not-null="true" />
+        </property>
+        <property name="dataFim" type="date">
+            <column name="dataFim" length="10" not-null="true" />
+        </property>
+        <property name="pagoAntecipado" type="boolean">
+            <column name="pagoAntecipado" not-null="true" />
+        </property>
+        <set name="aluguels" table="Aluguel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="reserva_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Aluguel" />
+        </set>
+    </class>
+</hibernate-mapping>

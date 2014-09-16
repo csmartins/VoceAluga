@@ -1,10 +1,14 @@
 package br.model;
 
-// Generated 02/09/2014 10:58:49 by Hibernate Tools 3.4.0.CR1
+// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,11 +19,7 @@ import javax.persistence.Table;
 public class Pessoa implements java.io.Serializable
 {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2307353215778627493L;
-	private int pessoaOid;
+	private String pessoaOid;
 	private String nome;
 	private String cpf;
 	private String rg;
@@ -27,12 +27,16 @@ public class Pessoa implements java.io.Serializable
 	private Character categoriaCarteira;
 	private String telefone;
 	private String email;
+	private Set aluguels = new HashSet(0);
+	private Set reservas = new HashSet(0);
+	private Set filials = new HashSet(0);
+	private Set listaNegras = new HashSet(0);
 
 	public Pessoa()
 	{
 	}
 
-	public Pessoa(int pessoaOid, String nome, String cpf, String rg)
+	public Pessoa(String pessoaOid, String nome, String cpf, String rg)
 	{
 		this.pessoaOid = pessoaOid;
 		this.nome = nome;
@@ -40,11 +44,10 @@ public class Pessoa implements java.io.Serializable
 		this.rg = rg;
 	}
 
-	public Pessoa(int pessoaOid, String nome, String cpf, String rg,
+	public Pessoa(String nome, String cpf, String rg,
 			String carteira, Character categoriaCarteira, String telefone,
 			String email)
 	{
-		this.pessoaOid = pessoaOid;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
@@ -55,13 +58,13 @@ public class Pessoa implements java.io.Serializable
 	}
 
 	@Id
-	@Column(name = "pessoa_oid", unique = true, nullable = false)
-	public int getPessoaOid()
+	@Column(name = "pessoa_oid", unique = true, nullable = false, length = 45)
+	public String getPessoaOid()
 	{
 		return this.pessoaOid;
 	}
 
-	public void setPessoaOid(int pessoaOid)
+	public void setPessoaOid(String pessoaOid)
 	{
 		this.pessoaOid = pessoaOid;
 	}
@@ -141,6 +144,50 @@ public class Pessoa implements java.io.Serializable
 	public void setEmail(String email)
 	{
 		this.email = email;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	public Set getAluguels()
+	{
+		return this.aluguels;
+	}
+
+	public void setAluguels(Set aluguels)
+	{
+		this.aluguels = aluguels;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	public Set getReservas()
+	{
+		return this.reservas;
+	}
+
+	public void setReservas(Set reservas)
+	{
+		this.reservas = reservas;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	public Set getFilials()
+	{
+		return this.filials;
+	}
+
+	public void setFilials(Set filials)
+	{
+		this.filials = filials;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa")
+	public Set getListaNegras()
+	{
+		return this.listaNegras;
+	}
+
+	public void setListaNegras(Set listaNegras)
+	{
+		this.listaNegras = listaNegras;
 	}
 
 }

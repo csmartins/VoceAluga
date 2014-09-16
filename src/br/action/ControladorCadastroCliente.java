@@ -1,10 +1,5 @@
 package br.action;
 
-import java.util.Random;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 import br.model.Pessoa;
@@ -12,9 +7,9 @@ import br.model.PessoaDAO;
 
 public class ControladorCadastroCliente
 {
-	ValidadorDadosCadastro validadorDadosCadastro = new ValidadorDadosCadastro();
+	private ValidadorDadosCadastroCliente validadorDadosCadastro = new ValidadorDadosCadastroCliente();
 	
-	PessoaDAO pessoaDAO = new PessoaDAO();
+	private PessoaDAO pessoaDAO = new PessoaDAO();
 
 	private boolean cadastroValido = true;
 
@@ -98,7 +93,7 @@ public class ControladorCadastroCliente
 	public void cadastrar(String nome, String cpf, String rg, String carteira,
 			String categoriaCarteira, String telefone, String email)
 	{
-		Pessoa cliente = new Pessoa(0, nome, cpf, rg, carteira,
+		Pessoa cliente = new Pessoa(nome, cpf, rg, carteira,
 				categoriaCarteira.toCharArray()[0], telefone, email);
 		
 		pessoaDAO.persistirPessoa(cliente);

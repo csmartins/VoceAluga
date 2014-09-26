@@ -1,31 +1,24 @@
 package br.view;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.DropMode;
-import javax.swing.JToggleButton;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 
 import br.action.ControladorCadastroVeiculo;
+import br.utils.Utils;
 
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JYearChooser;
-
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import javax.swing.border.CompoundBorder;
-import javax.swing.UIManager;
-import javax.swing.event.InternalFrameAdapter;
-import javax.swing.event.InternalFrameEvent;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class CadastroVeiculoFrame extends JInternalFrame
 {
@@ -165,7 +158,7 @@ public class CadastroVeiculoFrame extends JInternalFrame
 														calendarUltimaManutencao.getDate(), 
 														chckbxDisponivel.isSelected());
 					
-					JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+					Utils.exibirMensagem("Cadastro realizado com sucesso");
 				}
 			}
 
@@ -189,4 +182,6 @@ public class CadastroVeiculoFrame extends JInternalFrame
 			}
 		});
 	}
+	
+	
 }

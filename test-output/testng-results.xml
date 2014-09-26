@@ -1,77 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="7" passed="6">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="185" started-at="2014-09-16T17:07:04Z" finished-at="2014-09-16T17:07:04Z">
+  <suite name="Default suite" duration-ms="5805" started-at="2014-09-26T11:02:57Z" finished-at="2014-09-26T11:03:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="185" started-at="2014-09-16T17:07:04Z" finished-at="2014-09-16T17:07:04Z">
-      <class name="br.test.ValidadorDadosCadastroVeiculoUnitTest">
-        <test-method status="FAIL" signature="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse" duration-ms="125" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: null
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.fail(Assert.java:101)
-	at br.test.ValidadorDadosCadastroVeiculoUnitTest.testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse(ValidadorDadosCadastroVeiculoUnitTest.java:66)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+    <test name="Default test" duration-ms="5805" started-at="2014-09-26T11:02:57Z" finished-at="2014-09-26T11:03:03Z">
+      <class name="br.test.ControladorCadastroClienteFunctionalTest">
+        <test-method status="PASS" signature="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@8830993]" name="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco" duration-ms="5783" started-at="2014-09-26T08:02:57Z" finished-at="2014-09-26T08:03:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue" duration-ms="1" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse" duration-ms="2" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue" duration-ms="2" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse" duration-ms="2" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@43d0f0e]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue" duration-ms="2" started-at="2014-09-16T14:07:04Z" finished-at="2014-09-16T14:07:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue -->
-      </class> <!-- br.test.ValidadorDadosCadastroVeiculoUnitTest -->
+        </test-method> <!-- testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco -->
+      </class> <!-- br.test.ControladorCadastroClienteFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

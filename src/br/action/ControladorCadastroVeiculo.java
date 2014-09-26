@@ -2,10 +2,9 @@ package br.action;
 
 import java.util.Date;
 
-import javax.swing.JOptionPane;
-
 import br.model.Carro;
 import br.model.CarroDAO;
+import br.utils.Utils;
 
 public class ControladorCadastroVeiculo
 {
@@ -19,7 +18,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(modelo))
 		{
-			JOptionPane.showMessageDialog(null, "Digite o modelo do carro");
+			Utils.exibirMensagem("Digite o modelo do carro");
 
 			cadastroValido = false;
 		}
@@ -29,7 +28,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(marca))
 		{
-			JOptionPane.showMessageDialog(null, "Digite a marca do carro.");
+			Utils.exibirMensagem("Digite a marca do carro.");
 
 			cadastroValido = false;
 		}
@@ -39,7 +38,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(placa))
 		{
-			JOptionPane.showMessageDialog(null, "Digite a placa do carro.");
+			Utils.exibirMensagem("Digite a placa do carro.");
 
 			cadastroValido = false;
 		}
@@ -49,7 +48,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarUltimaManutencao(ultimaManutencao))
 		{
-			JOptionPane.showMessageDialog(null, "A data da última manutenção não pode ser uma data do futuro.");
+			Utils.exibirMensagem("A data da última manutenção não pode ser uma data do futuro.");
 
 			cadastroValido = false;
 		}

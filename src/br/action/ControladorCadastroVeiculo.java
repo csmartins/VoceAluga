@@ -1,5 +1,6 @@
 package br.action;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import br.model.Carro;
@@ -65,10 +66,11 @@ public class ControladorCadastroVeiculo
 	}
 
 	public void cadastrar(String marca, String placa, String modelo, int ano,
-			Date ultimaManutencao, Boolean disponivel)
+			Date ultimaManutencao, Boolean disponivel, String preco, String diaria)
 	{
+		
 		Carro veiculo = new Carro(modelo, placa, ano, ultimaManutencao, marca,
-				disponivel.toString());
+				disponivel.toString(), new BigDecimal(preco), new BigDecimal(diaria));
 
 		carroDAO.persistirVeiculo(veiculo);
 	}

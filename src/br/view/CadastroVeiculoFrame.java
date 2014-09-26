@@ -3,6 +3,7 @@ package br.view;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -38,6 +39,8 @@ public class CadastroVeiculoFrame extends JInternalFrame
 	private JCheckBox chckbxDisponivel;
 	
 	private ControladorCadastroVeiculo controladorCadastroVeiculo;
+	private JTextField cmpTextPreco;
+	private JTextField cmpTextDiaria;
 
 	/**
 	 * Launch the application.
@@ -137,6 +140,24 @@ public class CadastroVeiculoFrame extends JInternalFrame
 		panel.setBorder(UIManager.getBorder("InternalFrame.border"));
 		panel.setBounds(12, 59, 274, 213);
 		contentPane.add(panel);
+		
+		JLabel lblPreco = new JLabel("Preço");
+		lblPreco.setBounds(294, 101, 70, 15);
+		contentPane.add(lblPreco);
+		
+		cmpTextPreco = new JTextField();
+		cmpTextPreco.setBounds(382, 99, 114, 19);
+		contentPane.add(cmpTextPreco);
+		cmpTextPreco.setColumns(10);
+		
+		JLabel lblDiaria = new JLabel("Diaria");
+		lblDiaria.setBounds(294, 133, 70, 15);
+		contentPane.add(lblDiaria);
+		
+		cmpTextDiaria = new JTextField();
+		cmpTextDiaria.setColumns(10);
+		cmpTextDiaria.setBounds(382, 130, 114, 19);
+		contentPane.add(cmpTextDiaria);
 	}
 
 	private void criarEventoBotaoSalvarCadastroVeiculo(JButton btnSalvar)
@@ -156,7 +177,7 @@ public class CadastroVeiculoFrame extends JInternalFrame
 														cmpTextModelo.getText(),
 														cmpAno.getYear(), 
 														calendarUltimaManutencao.getDate(), 
-														chckbxDisponivel.isSelected());
+														chckbxDisponivel.isSelected(), cmpTextPreco.getText(), cmpTextDiaria.getText());
 					
 					Utils.exibirMensagem("Cadastro realizado com sucesso");
 				}
@@ -182,6 +203,4 @@ public class CadastroVeiculoFrame extends JInternalFrame
 			}
 		});
 	}
-	
-	
 }

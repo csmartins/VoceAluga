@@ -155,7 +155,7 @@ public class Carro implements java.io.Serializable
 		this.disponivel = disponivel;
 	}
 
-	@Column(name = "preco", precision = 6)
+	@Column(name = "preco", precision = 10)
 	public BigDecimal getPreco()
 	{
 		return this.preco;

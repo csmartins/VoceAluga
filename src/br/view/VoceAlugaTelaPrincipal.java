@@ -21,6 +21,7 @@ public class VoceAlugaTelaPrincipal
 	
 	private CadastroClienteFrame cadastroClienteFrame;
 	private CadastroVeiculoFrame cadastroVeiculoFrame;
+	private ReservaVeiculoPorModeloFrame reservaVeiculoPorModeloFrame;
 
 	/**
 	 * Launch the application.
@@ -87,6 +88,7 @@ public class VoceAlugaTelaPrincipal
 		menuBar.add(menuAluguel);
 		
 		JMenuItem menuReserva = new JMenuItem("Reserva");
+		criarEventoBotaoReservaVeiculo(menuReserva, desktopPane);
 		menuAluguel.add(menuReserva);
 		
 		JMenuItem menuAlugar = new JMenuItem("Alugar");
@@ -94,6 +96,23 @@ public class VoceAlugaTelaPrincipal
 		
 		JMenu menuPagamento = new JMenu("Pagamento");
 		menuBar.add(menuPagamento);
+	}
+
+	private void criarEventoBotaoReservaVeiculo(JMenuItem menuReserva, final JDesktopPane desktopPane)
+	{
+		menuReserva.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				if(reservaVeiculoPorModeloFrame == null || reservaVeiculoPorModeloFrame.isClosed())
+				{
+					reservaVeiculoPorModeloFrame = new ReservaVeiculoPorModeloFrame();
+					desktopPane.add(reservaVeiculoPorModeloFrame);
+					reservaVeiculoPorModeloFrame.show();
+					reservaVeiculoPorModeloFrame.setLocation(0,0);
+				}
+			}
+		});
 	}
 
 	private void criarEventoBotaoCadastroVeiculo(

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Filial" table="Filial" catalog="VoceAluga">
+        <id name="filialOid" type="string">
+            <column name="filial_oid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pessoa" class="br.model.Pessoa" fetch="select">
+            <column name="pessoa_oid" length="45" not-null="true" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="descricao" not-null="true" />
+        </property>
+        <set name="manutencaos" table="Manutencao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="filal_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Manutencao" />
+        </set>
+    </class>
+</hibernate-mapping>

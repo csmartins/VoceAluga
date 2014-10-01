@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="br.test.ControladorCadastroVeiculoFunctionalTest">
+      <class name="br.test.ValidadorDadosReservaVeiculoFunctionalTest">
         <methods>
-          <include name="testCadastrarVeiculo_DeveCadastrarComSucesso"/>
+          <include name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue"/>
+          <include name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse"/>
         </methods>
-      </class> <!-- br.test.ControladorCadastroVeiculoFunctionalTest -->
+      </class> <!-- br.test.ValidadorDadosReservaVeiculoFunctionalTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

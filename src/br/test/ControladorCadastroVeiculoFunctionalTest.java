@@ -1,40 +1,49 @@
 package br.test;
 
-import static org.mockito.Mockito.doCallRealMethod;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
+import java.text.ParseException;
 import java.util.Date;
 
 import org.testng.annotations.Test;
 
 import br.action.ControladorCadastroVeiculo;
-import br.model.AbstractDAO;
+import br.model.Carro;
+import br.model.CarroDAO;
 
 public class ControladorCadastroVeiculoFunctionalTest extends FunctionalTest
 {
 	private ControladorCadastroVeiculo controladorCadastroVeiculo;
 	
+	private CarroDAO carroDAO;
+	
 	@Test
-	public void testCadastrarVeiculo_DeveCadastrarComSucesso()
+	public void testCadastrarVeiculo_DeveCadastrarComSucesso() throws ParseException
 	{
 		controladorCadastroVeiculo = new ControladorCadastroVeiculo();
+		carroDAO = new CarroDAO();
 		String marca = "Fiat";
 		String modelo = "Doblo";
-		String placa = "ABC-1234";
+		String placa = "PPP-1111";
 		int ano = 2014;
 		Date ultimaManutencao = new Date();
 		boolean disponivel = true;
 		String preco = "50000.00";
 		String diaria = "100.00";
 		
-		AbstractDAO mockAbstractDAO = mock(AbstractDAO.class);
-		when(mockAbstractDAO.criarOid()).thenReturn("00000000-0000-0000-0000-000000000001");
-		doCallRealMethod().when(mockAbstractDAO).criarEntityManager("Carro");
-		
 		controladorCadastroVeiculo.cadastrar(marca, placa, modelo, ano, ultimaManutencao, disponivel, preco, diaria);
 		
-		//TODO implementar classe FunctionalTest como fazemos no siga para usar o find do entityManager
-
+		Carro carro = carroDAO.recuperarCarroPorPlaca(placa);
+		
+		assertEquals(marca, carro.getMarca());
+		assertEquals(modelo, carro.getModelo());
+		assertEquals(placa, carro.getPlaca());
+		assertEquals(ano, carro.getAno());
+		//assertEquals(ultimaManutencao, carro.getUltimaManutencao());
+		assertEquals("true", carro.getDisponivel());
+		assertEquals(diaria, carro.getDiaria().toString());
+		assertEquals(preco, carro.getPreco().toString());
+		
+		limparCarroAdicionadoPorPlaca(placa);
 	}
 }

@@ -69,6 +69,7 @@ public class CadastroVeiculoFrame extends JInternalFrame
 	 */
 	public CadastroVeiculoFrame()
 	{
+		setResizable(true);
 		setBorder(null);
 		setClosable(true);
 		setTitle("Cadastro de Veículo");

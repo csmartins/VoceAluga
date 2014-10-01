@@ -27,9 +27,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarCpf(cpf))
 		{
-			JOptionPane
-					.showMessageDialog(null,
-							"CPF deve conter apenas digitos e tamanho máximo de 11 caracteres.");
+			JOptionPane.showMessageDialog(null, "CPF deve conter apenas digitos e tamanho máximo de 11 caracteres.");
 			cadastroValido = false;
 		}
 
@@ -39,8 +37,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarRG(rg))
 		{
-			JOptionPane.showMessageDialog(null,
-					"RG deve conter apenas números.");
+			JOptionPane.showMessageDialog(null, "RG deve conter apenas números.");
 			cadastroValido = false;
 		}
 	}
@@ -49,9 +46,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarTelefone(telefone))
 		{
-			JOptionPane
-					.showMessageDialog(null,
-							"Telefone inválido, o telefone deve ser da forma 99999999.");
+			JOptionPane.showMessageDialog(null, "Telefone inválido, o telefone deve ser da forma 99999999.");
 			cadastroValido = false;
 		}
 
@@ -61,9 +56,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarEmail(email))
 		{
-			JOptionPane
-					.showMessageDialog(null,
-							"Email inválido, email deve ser da forma 'exemplo@exemplo.com'.");
+			JOptionPane.showMessageDialog(null, "Email inválido, email deve ser da forma 'exemplo@exemplo.com'.");
 			cadastroValido = false;
 		}
 
@@ -73,8 +66,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarCarteira(carteira))
 		{
-			JOptionPane.showMessageDialog(null,
-					"Insira uma carteira de motorista.");
+			JOptionPane.showMessageDialog(null, "Insira uma carteira de motorista.");
 			cadastroValido = false;
 		}
 

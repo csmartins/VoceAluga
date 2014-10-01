@@ -36,7 +36,7 @@ public class Reserva implements java.io.Serializable
 	{
 	}
 
-	public Reserva(String reservaOid, Pessoa pessoa, Carro carro,
+	public Reserva(Pessoa pessoa, Carro carro,
 			Date dataInicio, Date dataFim, boolean pagoAntecipado)
 	{
 		this.reservaOid = reservaOid;

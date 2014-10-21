@@ -5,7 +5,6 @@
     <classes>
       <class name="br.test.ValidadorDadosReservaVeiculoFunctionalTest">
         <methods>
-          <include name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue"/>
           <include name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse"/>
         </methods>
       </class> <!-- br.test.ValidadorDadosReservaVeiculoFunctionalTest -->

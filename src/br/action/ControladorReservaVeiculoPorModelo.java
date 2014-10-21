@@ -61,14 +61,14 @@ public class ControladorReservaVeiculoPorModelo
 		
 	}
 	
-//	public void validarMarcaEModelo(String marca, String modelo)
-//	{
-//		if(!validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo))
-//		{
-//			JOptionPane.showMessageDialog(null, "Não existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
-//			reservaValida = false;
-//		}
-//	}
+	public void validarMarcaEModelo(String marca, String modelo)
+	{
+		if(!validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo))
+		{
+			JOptionPane.showMessageDialog(null, "Não existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
+			reservaValida = false;
+		}
+	}
 
 	public void validarDataFim(Date dataFim)
 	{

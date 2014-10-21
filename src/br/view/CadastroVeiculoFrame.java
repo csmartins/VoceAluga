@@ -69,11 +69,11 @@ public class CadastroVeiculoFrame extends JInternalFrame
 	 */
 	public CadastroVeiculoFrame()
 	{
+		setMaximizable(true);
 		setResizable(true);
 		setBorder(null);
 		setClosable(true);
 		setTitle("Cadastro de Veículo");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -181,6 +181,8 @@ public class CadastroVeiculoFrame extends JInternalFrame
 														chckbxDisponivel.isSelected(), cmpTextPreco.getText(), cmpTextDiaria.getText());
 					
 					Utils.exibirMensagem("Cadastro realizado com sucesso");
+					
+					dispose();
 				}
 			}
 

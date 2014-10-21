@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6837" started-at="2014-10-01T12:55:05Z" finished-at="2014-10-01T12:55:12Z">
+  <suite name="Default suite" duration-ms="5018" started-at="2014-10-02T01:05:30Z" finished-at="2014-10-02T01:05:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6837" started-at="2014-10-01T12:55:05Z" finished-at="2014-10-01T12:55:12Z">
-      <class name="br.test.ControladorReservaVeiculoPorModeloFunctionalTest">
-        <test-method status="PASS" signature="testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@31c74456]" name="testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm" duration-ms="6816" started-at="2014-10-01T09:55:05Z" finished-at="2014-10-01T09:55:12Z">
+    <test name="Default test" duration-ms="5018" started-at="2014-10-02T01:05:30Z" finished-at="2014-10-02T01:05:35Z">
+      <class name="br.test.ValidadorDadosReservaVeiculoFunctionalTest">
+        <test-method status="PASS" signature="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosReservaVeiculoFunctionalTest@3b5fd4a3]" name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue" duration-ms="4136" started-at="2014-10-01T22:05:30Z" finished-at="2014-10-01T22:05:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm -->
-      </class> <!-- br.test.ControladorReservaVeiculoPorModeloFunctionalTest -->
+        </test-method> <!-- testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosReservaVeiculoFunctionalTest@3b5fd4a3]" name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse" duration-ms="857" started-at="2014-10-01T22:05:34Z" finished-at="2014-10-01T22:05:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse -->
+      </class> <!-- br.test.ValidadorDadosReservaVeiculoFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,6 +1,6 @@
 package br.test;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import br.action.ValidadorDadosReservaVeiculo;
@@ -12,10 +12,10 @@ public class ValidadorDadosReservaVeiculoFunctionalTest extends FunctionalTest
 	@Test
 	public void testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue()
 	{
-		String marca = "Fiat";
-		String modelo = "Uno";
+		String marca = "Marca Teste";
+		String modelo = "Teste";
 		
-		//Assert.assertTrue(validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo));
+		Assert.assertTrue(validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo));
 	}
 	
 	@Test
@@ -24,6 +24,6 @@ public class ValidadorDadosReservaVeiculoFunctionalTest extends FunctionalTest
 		String marca = "Fiat";
 		String modelo = "Golf";
 		
-		//Assert.assertFalse(validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo));
+		Assert.assertFalse(validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo));
 	}
 }

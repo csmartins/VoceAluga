@@ -161,6 +161,8 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 					controladorReservaVeiculoPorModelo.cadastrar(cmpTextCPF.getText(), cmpTextMarca.getText(), cmpTextModelo.getText(), dtChooserDataFim.getDate());
 				
 					JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso");
+					
+					dispose();
 				}
 			}
 
@@ -172,7 +174,7 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				
 				controladorReservaVeiculoPorModelo.validarDataFim(dtChooserDataFim.getDate());
 				
-				//controladorReservaVeiculoPorModelo.validarMarcaEModelo(cmpTextMarca.getText(), cmpTextModelo.getText());
+				controladorReservaVeiculoPorModelo.validarMarcaEModelo(cmpTextMarca.getText(), cmpTextModelo.getText());
 			}
 		});
 	}

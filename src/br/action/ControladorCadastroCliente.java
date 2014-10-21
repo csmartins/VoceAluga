@@ -1,5 +1,7 @@
 package br.action;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import br.model.Pessoa;
@@ -25,6 +27,13 @@ public class ControladorCadastroCliente
 
 	public void validarCpf(String cpf)
 	{
+		if(!verificarCPF(cpf))
+		{
+			JOptionPane.showMessageDialog(null, "Já existe um usuário com esse cpf.");
+			cadastroValido = false;
+			return;
+		}
+		
 		if (!validadorDadosCadastro.validarCpf(cpf))
 		{
 			JOptionPane.showMessageDialog(null, "CPF deve conter apenas digitos e tamanho máximo de 11 caracteres.");
@@ -89,5 +98,16 @@ public class ControladorCadastroCliente
 				categoriaCarteira.toCharArray()[0], telefone, email);
 		
 		pessoaDAO.persistirPessoa(cliente);
+	}
+
+	private boolean verificarCPF(String cpf)
+	{
+		List<Pessoa> listaPessoas = pessoaDAO.recuperarPessoasPorCPF(cpf);
+		
+		if(listaPessoas.isEmpty())
+			return true;
+		
+		else
+			return false;
 	}
 }

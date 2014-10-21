@@ -1,5 +1,7 @@
 package br.model;
 
+import java.util.List;
+
 
 public class PessoaDAO extends AbstractDAO
 {
@@ -26,6 +28,17 @@ public class PessoaDAO extends AbstractDAO
 		Pessoa pessoa = (Pessoa) entityManager.createNativeQuery(query, Pessoa.class).setParameter("cpf", cpf).getSingleResult();
 		
 		return pessoa;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Pessoa> recuperarPessoasPorCPF(String cpf)
+	{
+		String query = "select * from Pessoa where cpf = :cpf";
+		
+		List<Pessoa> listaPessoas = entityManager.createNativeQuery(query, Pessoa.class).setParameter("cpf", cpf).getResultList();
+		
+		return listaPessoas;
+				
 	}
 	
 	

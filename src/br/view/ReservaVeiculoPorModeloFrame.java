@@ -73,6 +73,7 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 		getContentPane().add(btnReservar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		criarEventoBotaoCancelar(btnCancelar);
 		btnCancelar.setBounds(332, 243, 138, 42);
 		getContentPane().add(btnCancelar);
 		DefaultComboBoxModel<GruposCarro> comboBoxModel = new DefaultComboBoxModel<GruposCarro>(GruposCarro.values());
@@ -142,6 +143,17 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 		dtChooserDataFim.setBounds(183, 27, 94, 19);
 		panelDuracao.add(dtChooserDataFim);
 
+	}
+
+	private void criarEventoBotaoCancelar(JButton btnCancelar) 
+	{
+		btnCancelar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				dispose();
+			}
+		});
 	}
 
 	private void criarEventoBotaoReservar(JButton btnReservar)

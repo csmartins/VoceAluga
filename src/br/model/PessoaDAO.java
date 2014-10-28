@@ -2,6 +2,8 @@ package br.model;
 
 import java.util.List;
 
+import javax.persistence.EntityTransaction;
+
 
 public class PessoaDAO extends AbstractDAO
 {
@@ -39,6 +41,17 @@ public class PessoaDAO extends AbstractDAO
 		
 		return listaPessoas;
 				
+	}
+
+	public void apagarPessoaAdicinadaNoTestePorCPF(String cpf)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		String query = "delete from Pessoa where cpf = :cpf";
+		entityManager.createNativeQuery(query, Pessoa.class).setParameter("cpf", cpf).executeUpdate();
+		
+		transaction.commit();
 	}
 	
 	

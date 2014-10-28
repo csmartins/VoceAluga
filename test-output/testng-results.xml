@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="102" started-at="2014-10-28T00:20:37Z" finished-at="2014-10-28T00:20:37Z">
+  <suite name="Default suite" duration-ms="13041" started-at="2014-10-28T13:14:09Z" finished-at="2014-10-28T13:14:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="102" started-at="2014-10-28T00:20:37Z" finished-at="2014-10-28T00:20:37Z">
-      <class name="br.test.ValidadorDadosCadastroVeiculoUnitTest">
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse" duration-ms="35" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+    <test name="Default test" duration-ms="13041" started-at="2014-10-28T13:14:09Z" finished-at="2014-10-28T13:14:22Z">
+      <class name="br.test.ControladorCadastroClienteFunctionalTest">
+        <test-method status="PASS" signature="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco" duration-ms="7502" started-at="2014-10-28T11:14:09Z" finished-at="2014-10-28T11:14:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue" duration-ms="5" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+        </test-method> <!-- testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco -->
+        <test-method status="PASS" signature="testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle" duration-ms="1220" started-at="2014-10-28T11:14:17Z" finished-at="2014-10-28T11:14:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+        </test-method> <!-- testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle -->
+        <test-method status="PASS" signature="testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle" duration-ms="1117" started-at="2014-10-28T11:14:18Z" finished-at="2014-10-28T11:14:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue" duration-ms="1" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+        </test-method> <!-- testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle -->
+        <test-method status="PASS" signature="testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse" duration-ms="1356" started-at="2014-10-28T11:14:19Z" finished-at="2014-10-28T11:14:21Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+        </test-method> <!-- testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue" duration-ms="1814" started-at="2014-10-28T11:14:21Z" finished-at="2014-10-28T11:14:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue -->
-      </class> <!-- br.test.ValidadorDadosCadastroVeiculoUnitTest -->
+        </test-method> <!-- testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue -->
+      </class> <!-- br.test.ControladorCadastroClienteFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

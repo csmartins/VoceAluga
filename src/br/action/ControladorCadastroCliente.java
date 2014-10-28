@@ -112,7 +112,7 @@ public class ControladorCadastroCliente
 		pessoaDAO.persistirPessoa(cliente);
 	}
 
-	private boolean verificarCPF(String cpf)
+	public boolean verificarCPF(String cpf)
 	{
 		List<Pessoa> listaPessoas = pessoaDAO.recuperarPessoasPorCPF(cpf);
 		

@@ -3,13 +3,13 @@ package br.view;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -181,9 +181,13 @@ public class CadastroVeiculoFrame extends JInternalFrame
 														chckbxDisponivel.isSelected(), cmpTextPreco.getText(), cmpTextDiaria.getText());
 					
 					Utils.exibirMensagem("Cadastro realizado com sucesso");
-					
 					dispose();
 				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, Arrays.toString(controladorCadastroVeiculo.getMensagensCadastro().toArray()), "Existem problemas com o cadastro", JOptionPane.ERROR_MESSAGE);
+				}
+					
 			}
 
 			private void validarDadosInseridos()
@@ -192,6 +196,8 @@ public class CadastroVeiculoFrame extends JInternalFrame
 				controladorCadastroVeiculo.validarModelo(cmpTextModelo.getText());
 				controladorCadastroVeiculo.validarPlaca(cmpTextPlaca.getText());
 				controladorCadastroVeiculo.validarUltimaManutencao(calendarUltimaManutencao.getDate());
+				controladorCadastroVeiculo.validarPreco(cmpTextPreco.getText());
+				controladorCadastroVeiculo.validarDiaria(cmpTextDiaria.getText());
 			}
 		});
 	}

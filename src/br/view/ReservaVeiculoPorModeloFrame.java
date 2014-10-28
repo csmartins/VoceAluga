@@ -1,27 +1,25 @@
 package br.view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import br.action.ControladorReservaVeiculoPorModelo;
-import br.model.CarroDAO;
-import br.model.GruposCarro;
-
-import com.toedter.calendar.JDateChooser;
-
 import javax.swing.border.LineBorder;
 
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import br.action.ControladorReservaVeiculoPorModelo;
+import br.model.GruposCarro;
+import br.utils.Utils;
+
+import com.toedter.calendar.JDateChooser;
 
 public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 {
@@ -160,10 +158,15 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				{
 					controladorReservaVeiculoPorModelo.cadastrar(cmpTextCPF.getText(), cmpTextMarca.getText(), cmpTextModelo.getText(), dtChooserDataFim.getDate());
 				
-					JOptionPane.showMessageDialog(null, "Reserva realizada com sucesso");
-					
+					Utils.exibirMensagem("Reserva realizada com sucesso");
 					dispose();
 				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, Arrays.toString(controladorReservaVeiculoPorModelo.getMensagensReserva().toArray()), "Existem problemas com a reserva", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				
 			}
 
 			private void validarDadosInseridos()

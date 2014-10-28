@@ -16,6 +16,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 
 import br.action.ControladorConsultaReserva;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -30,6 +31,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings("unchecked")
 	public ConsultaReservaFrame() {
 		setBorder(null);
 		setClosable(true);
@@ -40,7 +42,8 @@ public class ConsultaReservaFrame extends JInternalFrame {
 		
 		lstReservas = new JList<String>();
 		lstReservas.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		lstReservas.setModel(new AbstractListModel() {
+		lstReservas.setModel(new AbstractListModel() 
+		{
 			ArrayList<String> values = controladorConsultaReserva.getTextoReservas();
 			public int getSize() {
 				return values.size();

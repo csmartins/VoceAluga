@@ -1,5 +1,6 @@
 package br.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -23,6 +24,8 @@ public class ControladorReservaVeiculoPorModelo
 	private PessoaDAO pessoaDAO;
 	private CarroDAO carroDAO;
 	private ReservaDAO reservaDAO;
+	
+	private ArrayList<String> mensagensReserva;
 
 	public ControladorReservaVeiculoPorModelo()
 	{
@@ -31,12 +34,14 @@ public class ControladorReservaVeiculoPorModelo
 		carroDAO = new CarroDAO();
 		
 		reservaDAO = new ReservaDAO();
+		
+		mensagensReserva = new ArrayList<String>();
 	}
 	public void validarCPF(String cpf)
 	{
 		if(!validadorDadosReservaVeiculo.validarCPF(cpf))
 		{
-			JOptionPane.showMessageDialog(null, "Digite o cpf do cliente que está reservando este veículo.");
+			mensagensReserva.add("\nDigite o cpf do cliente que está reservando este veículo");
 			reservaValida = false;
 		}
 	}
@@ -45,7 +50,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarModelo(modelo))
 		{
-			JOptionPane.showMessageDialog(null, "Digite o modelo do veículo a ser reservado.");
+			mensagensReserva.add("\nDigite o modelo do veículo a ser reservado");
 			reservaValida = false;
 		}
 		
@@ -55,7 +60,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarMarca(marca))
 		{
-			JOptionPane.showMessageDialog(null, "Digite a marca do veículo a ser reservado.");
+			mensagensReserva.add("\nDigite a marca do veículo a ser reservado");
 			reservaValida = false;
 		}
 		
@@ -65,7 +70,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo))
 		{
-			JOptionPane.showMessageDialog(null, "Não existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
+			mensagensReserva.add("\nNão existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
 			reservaValida = false;
 		}
 	}
@@ -74,7 +79,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarDataFim(dataFim))
 		{
-			JOptionPane.showMessageDialog(null, "Digite a data de vencimento da reserva.");
+			mensagensReserva.add("\nDigite a data de vencimento da reserva");
 			reservaValida = false;
 		}
 		
@@ -128,6 +133,14 @@ public class ControladorReservaVeiculoPorModelo
 	public void setVeiculo(Carro veiculo)
 	{
 		this.veiculo = veiculo;
+	}
+	public ArrayList<String> getMensagensReserva()
+	{
+		return mensagensReserva;
+	}
+	public void setMensagensReserva(ArrayList<String> mensagensReserva)
+	{
+		this.mensagensReserva = mensagensReserva;
 	}
 	
 

@@ -1,6 +1,7 @@
 package br.action;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 
 import br.model.Carro;
@@ -11,15 +12,26 @@ public class ControladorCadastroVeiculo
 {
 	private ValidadorDadosCadastroVeiculo validadorDadosCadastroVeiculo = new ValidadorDadosCadastroVeiculo();
 
-	private boolean cadastroValido = true;
+	private boolean cadastroValido;
 
-	private CarroDAO carroDAO = new CarroDAO();
+	private CarroDAO carroDAO;
+	
+	private ArrayList<String> mensagensCadastro;
+	
+	public ControladorCadastroVeiculo()
+	{
+		cadastroValido = true;
+		
+		carroDAO = new CarroDAO();
+		
+		mensagensCadastro = new ArrayList<String>();
+	}
 
 	public void validarModelo(String modelo)
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(modelo))
 		{
-			Utils.exibirMensagem("Digite o modelo do carro");
+			mensagensCadastro.add("\nDigite o modelo do carro");
 
 			cadastroValido = false;
 		}
@@ -29,7 +41,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(marca))
 		{
-			Utils.exibirMensagem("Digite a marca do carro.");
+			mensagensCadastro.add("\nDigite a marca do carro");
 
 			cadastroValido = false;
 		}
@@ -39,7 +51,7 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarModelo(placa))
 		{
-			Utils.exibirMensagem("Digite a placa do carro.");
+			mensagensCadastro.add("\nDigite a placa do carro");
 
 			cadastroValido = false;
 		}
@@ -49,8 +61,28 @@ public class ControladorCadastroVeiculo
 	{
 		if (!validadorDadosCadastroVeiculo.validarUltimaManutencao(ultimaManutencao))
 		{
-			Utils.exibirMensagem("A data da última manutenção não pode ser uma data do futuro.");
+			mensagensCadastro.add("\nA data da última manutenção não pode ser uma data do futuro");
 
+			cadastroValido = false;
+		}
+	}
+	
+	public void validarPreco(String preco)
+	{
+		if(!validadorDadosCadastroVeiculo.validarPreco(preco))
+		{
+			mensagensCadastro.add("\nPreço invalido");
+			
+			cadastroValido = false;
+		}
+	}
+	
+	public void validarDiaria(String diaria)
+	{
+		if(!validadorDadosCadastroVeiculo.validarDiaria(diaria))
+		{
+			mensagensCadastro.add("\nDiaria invalida");
+			
 			cadastroValido = false;
 		}
 	}
@@ -74,5 +106,17 @@ public class ControladorCadastroVeiculo
 
 		carroDAO.persistirVeiculo(veiculo);
 	}
+
+	public ArrayList<String> getMensagensCadastro()
+	{
+		return mensagensCadastro;
+	}
+
+	public void setMensagensCadastro(ArrayList<String> mensagensCadastro)
+	{
+		this.mensagensCadastro = mensagensCadastro;
+	}
+
+	
 
 }

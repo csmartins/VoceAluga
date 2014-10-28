@@ -2,6 +2,7 @@ package br.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -17,6 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.action.ControladorCadastroCliente;
 import br.model.CategoriasCarteira;
+import br.utils.Utils;
 
 public class CadastroClienteFrame extends JInternalFrame 
 {
@@ -213,10 +215,15 @@ public class CadastroClienteFrame extends JInternalFrame
 														cmpTextTelefone.getText(), 
 														cmpTextEmail.getText());
 					
-					JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+					Utils.exibirMensagem("Cadastro realizado com sucesso");
+					dispose();
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, Arrays.toString(controladorCadastroCliente.getMensagensCadastro().toArray()), "Existem problemas com o cadastro", JOptionPane.ERROR_MESSAGE);
 				}
 				
-				dispose();
+				
 			}
 
 			private void validarDadosInseridos()

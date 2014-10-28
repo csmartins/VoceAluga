@@ -1,5 +1,6 @@
 package br.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -14,12 +15,23 @@ public class ControladorCadastroCliente
 	private PessoaDAO pessoaDAO = new PessoaDAO();
 
 	private boolean cadastroValido = true;
+	
+	private ArrayList<String> mensagensCadastro;
 
+	public ControladorCadastroCliente()
+	{
+		pessoaDAO = new PessoaDAO();
+		
+		cadastroValido = true;
+		
+		mensagensCadastro = new ArrayList<String>();
+	}
+	
 	public void validarNome(String nome)
 	{
 		if (!validadorDadosCadastro.validarNome(nome))
 		{
-			JOptionPane.showMessageDialog(null, "Nome deve mais de 3 letras.");
+			mensagensCadastro.add("\nNome deve mais de 3 letras");
 			cadastroValido = false;
 		}
 
@@ -29,14 +41,14 @@ public class ControladorCadastroCliente
 	{
 		if(!verificarCPF(cpf))
 		{
-			JOptionPane.showMessageDialog(null, "Já existe um usuário com esse cpf.");
+			mensagensCadastro.add("\nJá existe um usuário com esse cpf");
 			cadastroValido = false;
 			return;
 		}
 		
 		if (!validadorDadosCadastro.validarCpf(cpf))
 		{
-			JOptionPane.showMessageDialog(null, "CPF deve conter apenas digitos e tamanho máximo de 11 caracteres.");
+			mensagensCadastro.add("\nCPF deve conter apenas digitos e tamanho máximo de 11 caracteres");
 			cadastroValido = false;
 		}
 
@@ -46,7 +58,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarRG(rg))
 		{
-			JOptionPane.showMessageDialog(null, "RG deve conter apenas números.");
+			mensagensCadastro.add("\nRG deve conter apenas números");
 			cadastroValido = false;
 		}
 	}
@@ -55,7 +67,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarTelefone(telefone))
 		{
-			JOptionPane.showMessageDialog(null, "Telefone inválido, o telefone deve ser da forma 99999999.");
+			mensagensCadastro.add("\nTelefone inválido, o telefone deve ser da forma 99999999");
 			cadastroValido = false;
 		}
 
@@ -65,7 +77,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarEmail(email))
 		{
-			JOptionPane.showMessageDialog(null, "Email inválido, email deve ser da forma 'exemplo@exemplo.com'.");
+			mensagensCadastro.add("\nEmail inválido, email deve ser da forma 'exemplo@exemplo.com'");
 			cadastroValido = false;
 		}
 
@@ -75,7 +87,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarCarteira(carteira))
 		{
-			JOptionPane.showMessageDialog(null, "Insira uma carteira de motorista.");
+			mensagensCadastro.add("\nInsira uma carteira de motorista");
 			cadastroValido = false;
 		}
 
@@ -109,5 +121,15 @@ public class ControladorCadastroCliente
 		
 		else
 			return false;
+	}
+
+	public ArrayList<String> getMensagensCadastro()
+	{
+		return mensagensCadastro;
+	}
+
+	public void setMensagensCadastro(ArrayList<String> mensagensCadastro)
+	{
+		this.mensagensCadastro = mensagensCadastro;
 	}
 }

@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5018" started-at="2014-10-02T01:05:30Z" finished-at="2014-10-02T01:05:35Z">
+  <suite name="Default suite" duration-ms="102" started-at="2014-10-28T00:20:37Z" finished-at="2014-10-28T00:20:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5018" started-at="2014-10-02T01:05:30Z" finished-at="2014-10-02T01:05:35Z">
-      <class name="br.test.ValidadorDadosReservaVeiculoFunctionalTest">
-        <test-method status="PASS" signature="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosReservaVeiculoFunctionalTest@3b5fd4a3]" name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue" duration-ms="4136" started-at="2014-10-01T22:05:30Z" finished-at="2014-10-01T22:05:34Z">
+    <test name="Default test" duration-ms="102" started-at="2014-10-28T00:20:37Z" finished-at="2014-10-28T00:20:37Z">
+      <class name="br.test.ValidadorDadosCadastroVeiculoUnitTest">
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse" duration-ms="35" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosCorretos_DeveRetornarTrue -->
-        <test-method status="PASS" signature="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosReservaVeiculoFunctionalTest@3b5fd4a3]" name="testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse" duration-ms="857" started-at="2014-10-01T22:05:34Z" finished-at="2014-10-01T22:05:35Z">
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue" duration-ms="5" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidadorDadosReservaVeiculo_ValidarMarcaEModelo_DadosIncorretos_DeveRetornarFalse -->
-      </class> <!-- br.test.ValidadorDadosReservaVeiculoFunctionalTest -->
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNaoNula_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarMarca_MarcaNula_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue" duration-ms="1" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNaoNulo_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarModelo_ModeloNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNUla_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroVeiculoUnitTest@6587f194]" name="testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue" duration-ms="2" started-at="2014-10-27T22:20:37Z" finished-at="2014-10-27T22:20:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidadorDadosCadastroVeiculo_ValidarPlaca_PlacaNaoNUla_DeveRetornarTrue -->
+      </class> <!-- br.test.ValidadorDadosCadastroVeiculoUnitTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,11 +1,14 @@
 package br.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -16,24 +19,26 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 
 import br.action.ControladorConsultaReserva;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import br.model.Reserva;
 
 public class ConsultaReservaFrame extends JInternalFrame {
 
 	private static final long serialVersionUID = -3260622578112988026L;
 	private JTextField txtCpfCliente;
 	private JList<String> lstReservas;
+	private JDesktopPane desktopPane;
 	
 	private ControladorConsultaReserva controladorConsultaReserva;
 
 	/**
 	 * Create the frame.
 	 */
-	public ConsultaReservaFrame() {
+	public ConsultaReservaFrame(final JDesktopPane desktopPane) {
+		this.desktopPane = desktopPane;
+		
 		setBorder(null);
 		setClosable(true);
-		setTitle("Consultar R");
+		setTitle("Consultar Reserva");
 		setBounds(100, 100, 582, 330);
 		
 		controladorConsultaReserva = new ControladorConsultaReserva();
@@ -75,6 +80,22 @@ public class ConsultaReservaFrame extends JInternalFrame {
 		panelConsulta.add(btnConsultar);
 		
 		JButton btnSelecionar = new JButton("Selecionar");
+		btnSelecionar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent ae)
+			{
+				if (ae.getActionCommand().equals("Selecionar"))
+				{
+					int reservaSelecionada = lstReservas.getAnchorSelectionIndex();
+					Reserva reserva = controladorConsultaReserva.getReserva(reservaSelecionada);
+					
+					InformacoesReservaFrame informacoesReservaFrame = new InformacoesReservaFrame(reserva);
+					desktopPane.add(informacoesReservaFrame);
+					informacoesReservaFrame.show();
+					informacoesReservaFrame.setLocation(0, 0);
+				}
+			}
+		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
@@ -107,6 +128,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 						.addComponent(btnSelecionar)
 						.addComponent(btnCancelar)))
 		);
+		
 		getContentPane().setLayout(groupLayout);
 
 	}

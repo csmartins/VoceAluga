@@ -83,4 +83,9 @@ public class ControladorConsultaReserva
 	{
 		return textoReservas;
 	}
+	
+	public Reserva getReserva(int index)
+	{
+		return reservas.get(index);
+	}
 }

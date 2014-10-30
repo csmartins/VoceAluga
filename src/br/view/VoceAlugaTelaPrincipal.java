@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 
 public class VoceAlugaTelaPrincipal
 {
-
 	private JFrame frame;
 	private JDesktopPane desktopPane;
 	private JMenuItem menuItemCadastro;
@@ -128,7 +127,7 @@ public class VoceAlugaTelaPrincipal
 			{
 				if(consultaReservaFrame == null || consultaReservaFrame.isClosed())
 				{
-					consultaReservaFrame = new ConsultaReservaFrame();
+					consultaReservaFrame = new ConsultaReservaFrame(desktopPane);
 					desktopPane.add(consultaReservaFrame);
 					consultaReservaFrame.show();
 					consultaReservaFrame.setLocation(0,0);

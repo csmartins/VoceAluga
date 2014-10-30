@@ -3,6 +3,8 @@ package br.action;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import br.model.Carro;
 import br.model.CarroDAO;
 
@@ -52,16 +54,21 @@ public class ValidadorDadosReservaVeiculo
 			return false;
 	}
 
-//	public boolean validarExistenciaDeVeiculoParaMarcaEModelo(String marca, String modelo)
-//	{
-//		CarroDAO carroDAO = new CarroDAO();
-//		
-//		Carro veiculo = carroDAO.recuperarCarroDisponivelPorMarcaEModelo(marca, modelo);
-//		
-//		if(veiculo == null)
-//			return false;
-//		else
-//			return true;
-//	}
-
+	public boolean validarExistenciaDeVeiculoParaMarcaEModelo(String marca, String modelo)
+	{
+		CarroDAO carroDAO = new CarroDAO();
+		
+		try
+		{
+			Carro veiculo = carroDAO.recuperarCarroDisponivelPorMarcaEModelo(marca, modelo);
+			
+			return true;
+		}
+		catch(NoResultException e)
+		{
+			return false;
+		}
+		
+		
+	}
 }

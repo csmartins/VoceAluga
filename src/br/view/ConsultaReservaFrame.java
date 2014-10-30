@@ -33,9 +33,9 @@ public class ConsultaReservaFrame extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConsultaReservaFrame(final JDesktopPane desktopPane) {
-		this.desktopPane = desktopPane;
-		
+
+	@SuppressWarnings("unchecked")
+	public ConsultaReservaFrame() {
 		setBorder(null);
 		setClosable(true);
 		setTitle("Consultar Reserva");
@@ -45,7 +45,8 @@ public class ConsultaReservaFrame extends JInternalFrame {
 		
 		lstReservas = new JList<String>();
 		lstReservas.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		lstReservas.setModel(new AbstractListModel() {
+		lstReservas.setModel(new AbstractListModel() 
+		{
 			ArrayList<String> values = controladorConsultaReserva.getTextoReservas();
 			public int getSize() {
 				return values.size();

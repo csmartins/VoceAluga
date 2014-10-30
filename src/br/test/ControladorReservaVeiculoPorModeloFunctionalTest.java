@@ -25,4 +25,10 @@ public class ControladorReservaVeiculoPorModeloFunctionalTest extends Functional
 		Assert.assertNotNull(veiculo);
 		Assert.assertEquals(marca, veiculo.getMarca());
 	}
+	
+	@Test
+	public void testControladorReservaVeiculoPorModelo_NenhumCarroDisponivelParaMarcaEModelo_NaoDeveFazerReserva()
+	{
+		
+	}
 }

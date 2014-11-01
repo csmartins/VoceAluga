@@ -23,8 +23,10 @@ public class ControladorConsultaReserva
 		prepopular();
 	}
 	
-	private void prepopular()
+	public void prepopular()
 	{
+		reservas.clear();
+		
 		reservas.addAll(reservaDAO.recuperarTodasReservas());
 		popularTextoReservas();
 	}

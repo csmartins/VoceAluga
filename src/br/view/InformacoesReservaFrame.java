@@ -81,6 +81,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		JLabel lblPagoAntecipadamente = new JLabel("Pago antecipadamente: "  + controladorInformacoesReserva.getPagoAntecipadamente());
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setVisible(controladorInformacoesReserva.reservaPodeSerCancelada());
 		
 		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);

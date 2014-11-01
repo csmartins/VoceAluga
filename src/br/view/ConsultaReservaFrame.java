@@ -35,7 +35,9 @@ public class ConsultaReservaFrame extends JInternalFrame {
 	 */
 
 	@SuppressWarnings("unchecked")
-	public ConsultaReservaFrame() {
+	public ConsultaReservaFrame(final JDesktopPane desktopPane) {
+		this.desktopPane = desktopPane;
+		
 		setBorder(null);
 		setClosable(true);
 		setTitle("Consultar Reserva");
@@ -98,7 +100,9 @@ public class ConsultaReservaFrame extends JInternalFrame {
 			}
 		});
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		JButton btnVoltar = new JButton("Voltar");
+		criarBotaoVoltar(btnVoltar);
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -108,7 +112,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 							.addGap(129)
 							.addComponent(btnSelecionar)
 							.addGap(85)
-							.addComponent(btnCancelar))
+							.addComponent(btnVoltar))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(6)
 							.addComponent(lstReservas, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
@@ -127,10 +131,18 @@ public class ConsultaReservaFrame extends JInternalFrame {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnSelecionar)
-						.addComponent(btnCancelar)))
+						.addComponent(btnVoltar)))
 		);
 		
 		getContentPane().setLayout(groupLayout);
 
+	}
+	
+	private void criarBotaoVoltar(JButton btnVoltar) {
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				dispose();
+			}
+		});
 	}
 }

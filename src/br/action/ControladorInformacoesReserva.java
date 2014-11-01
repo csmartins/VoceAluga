@@ -76,4 +76,9 @@ public class ControladorInformacoesReserva
 	{
 		return calculaIntervaloDias(reserva.getDataInicio(), reserva.getDataFim());
 	}
+	
+	public void cancelar()
+	{
+		
+	}
 }

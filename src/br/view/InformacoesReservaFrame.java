@@ -11,16 +11,21 @@ import javax.swing.border.BevelBorder;
 
 import br.action.ControladorInformacoesReserva;
 import br.model.Reserva;
+import br.utils.Utils;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InformacoesReservaFrame extends JInternalFrame {
 	private ControladorInformacoesReserva controladorInformacoesReserva;
+	private ConsultaReservaFrame frameConsultaReserva;
 
 	/**
 	 * Create the frame.
 	 */
-	public InformacoesReservaFrame(Reserva reserva) {
+	public InformacoesReservaFrame(Reserva reserva, ConsultaReservaFrame frameConsultaReserva) {
+		this.frameConsultaReserva = frameConsultaReserva;
+		
 		setBorder(null);
 		setClosable(true);
 		setBounds(100, 100, 582, 330);
@@ -81,6 +86,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		JLabel lblPagoAntecipadamente = new JLabel("Pago antecipadamente: "  + controladorInformacoesReserva.getPagoAntecipadamente());
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		criarBotaoCancelar(btnCancelar);
 		btnCancelar.setVisible(controladorInformacoesReserva.reservaPodeSerCancelada());
 		
 		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
@@ -201,6 +207,18 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		);
 		pnlInfoCliente.setLayout(gl_pnlInfoCliente);
 		getContentPane().setLayout(groupLayout);
+	}
+
+	private void criarBotaoCancelar(JButton btnCancelar) {
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				controladorInformacoesReserva.cancelar();
+				
+				Utils.exibirMensagem("Reserva cancelada com sucesso");
+				frameConsultaReserva.atualizarListaReservas();
+				dispose();
+			}
+		});
 	}
 
 	private void criarBotaoVoltar(JButton btnVoltar) {

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.model.Reserva;
+import br.model.ReservaDAO;
 
 public class ControladorInformacoesReserva
 {
@@ -91,6 +92,12 @@ public class ControladorInformacoesReserva
 	
 	public void cancelar()
 	{
-		
+		if (!reservaPodeSerCancelada())
+		{
+			return;
+		}
+	
+		ReservaDAO reservaDAO = new ReservaDAO();
+		reservaDAO.removerReserva(reserva);
 	}
 }

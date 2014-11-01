@@ -77,7 +77,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 		panelConsulta.add(btnConsultar);
 
 		JButton btnSelecionar = new JButton("Selecionar");
-		criarBotaoSelecionar(btnSelecionar);
+		criarBotaoSelecionar(btnSelecionar, this);
 
 		JButton btnVoltar = new JButton("Voltar");
 		criarBotaoVoltar(btnVoltar);
@@ -159,7 +159,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 		});
 	}
 
-	private void criarBotaoSelecionar(JButton btnSelecionar) {
+	private void criarBotaoSelecionar(JButton btnSelecionar, final ConsultaReservaFrame frame) {
 		btnSelecionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				if (ae.getActionCommand().equals("Selecionar")) {
@@ -169,7 +169,7 @@ public class ConsultaReservaFrame extends JInternalFrame {
 							.getReserva(reservaSelecionada);
 
 					InformacoesReservaFrame informacoesReservaFrame = new InformacoesReservaFrame(
-							reserva);
+							reserva, frame);
 					desktopPane.add(informacoesReservaFrame);
 					informacoesReservaFrame.show();
 					informacoesReservaFrame.setLocation(0, 0);
@@ -185,16 +185,15 @@ public class ConsultaReservaFrame extends JInternalFrame {
 			}
 		});
 	}
-	
+
 	public void atualizarListaReservas() {
-		if (txtCpfCliente.getText() == null || txtCpfCliente.getText().equals(""))
-		{
-			controladorConsultaReserva.prepopular();
+		if (txtCpfCliente.getText() == null
+				|| txtCpfCliente.getText().equals("")) {
+			controladorConsultaReserva.atualizarListadeReservas();
 		} else {
-			controladorConsultaReserva.filtrarReservas(txtCpfCliente
-					.getText());
+			controladorConsultaReserva.filtrarReservas(txtCpfCliente.getText());
 		}
-		
+
 		lstReservas.updateUI();
 	}
 }

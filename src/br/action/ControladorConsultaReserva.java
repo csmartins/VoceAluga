@@ -25,10 +25,15 @@ public class ControladorConsultaReserva
 	
 	public void prepopular()
 	{
-		reservas.clear();
-		
 		reservas.addAll(reservaDAO.recuperarTodasReservas());
 		popularTextoReservas();
+	}
+	
+	public void atualizarListadeReservas()
+	{
+		reservaDAO.refresh();
+		reservas.clear();
+		prepopular();
 	}
 	
 	public void filtrarReservas(String cpf)

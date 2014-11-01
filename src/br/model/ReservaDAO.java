@@ -2,6 +2,7 @@ package br.model;
 
 import java.util.List;
 
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 public class ReservaDAO extends AbstractDAO
@@ -23,6 +24,17 @@ public class ReservaDAO extends AbstractDAO
 		entityManager.close();
 	}
 	
+	public void removerReserva(Reserva reserva)
+	{
+		entityManager.getTransaction().begin();
+		
+		Reserva r = entityManager.merge(reserva);
+		entityManager.remove(r);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
 	public List<Reserva> recuperarTodasReservas()
 	{
 		List<Reserva> resultado;
@@ -41,5 +53,11 @@ public class ReservaDAO extends AbstractDAO
 		resultado = query.getResultList();
 		
 		return resultado;
+	}
+	
+	public void refresh()
+	{
+		entityManager.close();
+		criarEntityManager("Reserva");
 	}
 }

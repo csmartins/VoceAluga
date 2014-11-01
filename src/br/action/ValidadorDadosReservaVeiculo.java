@@ -53,6 +53,36 @@ public class ValidadorDadosReservaVeiculo
 			
 			return false;
 	}
+	
+	public boolean validarDataInicio(Date dataInicio)
+	{
+		if(dataInicio != null)
+			return true;
+		
+		else
+			try
+			{
+				if(dataInicio.before(new Date()))
+					return false;
+			}
+			catch (NullPointerException e) 
+			{
+				return false;
+			}
+			
+			return false;
+	}
+	
+	public boolean validarDataFimDepoisDataInicio(Date dataInicio, Date dataFim)
+	{
+		if (dataFim != null && dataInicio != null &&
+				dataFim.before(dataInicio))
+		{
+			return false;
+		}
+		
+		return true;
+	}
 
 	public boolean validarExistenciaDeVeiculoParaMarcaEModelo(String marca, String modelo)
 	{

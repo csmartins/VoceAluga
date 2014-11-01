@@ -78,7 +78,7 @@ public class ControladorReservaVeiculoPorModelo
 
 	public void validarDatas(Date dataInicio, Date dataFim)
 	{
-		if(!validadorDadosReservaVeiculo.validarDataFim(dataInicio))
+		if(!validadorDadosReservaVeiculo.validarDataInicio(dataInicio))
 		{
 			mensagensReserva.add("\nInforme a data de início da reserva");
 			reservaValida = false;
@@ -90,8 +90,7 @@ public class ControladorReservaVeiculoPorModelo
 			reservaValida = false;
 		}
 		
-		if (dataFim != null && dataInicio != null &&
-			dataFim.before(dataInicio))
+		if (!validadorDadosReservaVeiculo.validarDataFimDepoisDataInicio(dataInicio, dataFim))
 		{
 			mensagensReserva.add("\nData de fim deve ser depois da data de início.");
 			reservaValida = false;

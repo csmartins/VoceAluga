@@ -37,6 +37,7 @@ public class ControladorReservaVeiculoPorModelo
 		
 		mensagensReserva = new ArrayList<String>();
 	}
+	
 	public void validarCPF(String cpf)
 	{
 		if(!validadorDadosReservaVeiculo.validarCPF(cpf))
@@ -75,14 +76,26 @@ public class ControladorReservaVeiculoPorModelo
 		}
 	}
 
-	public void validarDataFim(Date dataFim)
+	public void validarDatas(Date dataInicio, Date dataFim)
 	{
-		if(!validadorDadosReservaVeiculo.validarDataFim(dataFim))
+		if(!validadorDadosReservaVeiculo.validarDataFim(dataInicio))
 		{
-			mensagensReserva.add("\nDigite a data de vencimento da reserva");
+			mensagensReserva.add("\nInforme a data de início da reserva");
 			reservaValida = false;
 		}
 		
+		if(!validadorDadosReservaVeiculo.validarDataFim(dataFim))
+		{
+			mensagensReserva.add("\nInforme a data de vencimento da reserva");
+			reservaValida = false;
+		}
+		
+		if (dataFim != null && dataInicio != null &&
+			dataFim.before(dataInicio))
+		{
+			mensagensReserva.add("\nData de fim deve ser depois da data de início.");
+			reservaValida = false;
+		}
 	}
 
 	public boolean isReservaValida()
@@ -95,19 +108,18 @@ public class ControladorReservaVeiculoPorModelo
 		this.reservaValida = reservaValida;
 	}
 
-	public void cadastrar(String cpf, String marca, String modelo, Date dataFim)
+	public void cadastrar(String cpf, String marca, String modelo, Date dataInicio, Date dataFim)
 	{
 		popularCliente(cpf);
 		
 		popularVeiculo(marca, modelo);
 		
-		criarReserva(dataFim);
-		
+		criarReserva(dataInicio, dataFim);
 	}
 
-	private void criarReserva(Date dataFim)
+	private void criarReserva(Date dataInicio, Date dataFim)
 	{
-		Reserva reserva = new Reserva(cliente, veiculo, new Date(), dataFim, false);
+		Reserva reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
 		
 		reservaDAO.persistirReserva(reserva);
 		

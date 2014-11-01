@@ -33,6 +33,7 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 	private JTextField cmpTextMarca;
 	private JTextField cmpTextModelo;
 	JDateChooser dtChooserDataFim;
+	JDateChooser dtChooserDataInicio;
 	
 	private ControladorReservaVeiculoPorModelo controladorReservaVeiculoPorModelo;
 	/**
@@ -136,12 +137,20 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 		panelDuracao.add(lblDuraoDaReserva);
 		
 		JLabel lblDataFim = new JLabel("Data Fim");
-		lblDataFim.setBounds(81, 27, 70, 15);
+		lblDataFim.setBounds(312, 26, 70, 15);
 		panelDuracao.add(lblDataFim);
 		
 		dtChooserDataFim = new JDateChooser();
-		dtChooserDataFim.setBounds(183, 27, 94, 19);
+		dtChooserDataFim.setBounds(383, 26, 94, 19);
 		panelDuracao.add(dtChooserDataFim);
+		
+		dtChooserDataInicio = new JDateChooser();
+		dtChooserDataInicio.setBounds(152, 26, 94, 19);
+		panelDuracao.add(dtChooserDataInicio);
+		
+		JLabel lblDataInicio = new JLabel("Data Inicio");
+		lblDataInicio.setBounds(67, 27, 84, 15);
+		panelDuracao.add(lblDataInicio);
 
 	}
 
@@ -168,7 +177,8 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				
 				if(controladorReservaVeiculoPorModelo.isReservaValida())
 				{
-					controladorReservaVeiculoPorModelo.cadastrar(cmpTextCPF.getText(), cmpTextMarca.getText(), cmpTextModelo.getText(), dtChooserDataFim.getDate());
+					controladorReservaVeiculoPorModelo.cadastrar(cmpTextCPF.getText(), cmpTextMarca.getText(), cmpTextModelo.getText(), dtChooserDataInicio.getDate(), dtChooserDataFim.getDate());
+					
 				
 					Utils.exibirMensagem("Reserva realizada com sucesso");
 					dispose();
@@ -187,7 +197,7 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				controladorReservaVeiculoPorModelo.validarMarca(cmpTextMarca.getText());
 				controladorReservaVeiculoPorModelo.validarModelo(cmpTextModelo.getText());
 				
-				controladorReservaVeiculoPorModelo.validarDataFim(dtChooserDataFim.getDate());
+				controladorReservaVeiculoPorModelo.validarDatas(dtChooserDataInicio.getDate(), dtChooserDataFim.getDate());
 				
 				controladorReservaVeiculoPorModelo.validarMarcaEModelo(cmpTextMarca.getText(), cmpTextModelo.getText());
 			}

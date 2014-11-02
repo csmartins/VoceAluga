@@ -72,4 +72,15 @@ public class CarroDAO extends AbstractDAO
 		transaction.commit();
 	}
 
+	public void disponibilizarCarro(Carro veiculo)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.merge(veiculo);
+		
+		transaction.commit();
+		
+	}
+
 }

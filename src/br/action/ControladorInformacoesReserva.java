@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import br.model.CarroDAO;
 import br.model.Reserva;
 import br.model.ReservaDAO;
 
@@ -99,5 +100,9 @@ public class ControladorInformacoesReserva
 	
 		ReservaDAO reservaDAO = new ReservaDAO();
 		reservaDAO.removerReserva(reserva);
+		
+		reserva.getCarro().setDisponivel("true");
+		CarroDAO carroDAO = new CarroDAO();
+		carroDAO.disponibilizarCarro(reserva.getCarro());
 	}
 }

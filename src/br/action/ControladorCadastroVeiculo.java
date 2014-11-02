@@ -6,7 +6,6 @@ import java.util.Date;
 
 import br.model.Carro;
 import br.model.CarroDAO;
-import br.utils.Utils;
 
 public class ControladorCadastroVeiculo
 {

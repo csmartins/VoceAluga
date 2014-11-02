@@ -3,8 +3,6 @@ package br.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import br.model.Pessoa;
 import br.model.PessoaDAO;
 

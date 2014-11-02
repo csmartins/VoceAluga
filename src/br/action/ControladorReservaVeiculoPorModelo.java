@@ -3,8 +3,6 @@ package br.action;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.JOptionPane;
-
 import br.model.Carro;
 import br.model.CarroDAO;
 import br.model.Pessoa;

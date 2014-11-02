@@ -1,7 +1,6 @@
 package br.action;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.NoResultException;
 

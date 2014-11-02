@@ -186,9 +186,9 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				else
 				{
 					JOptionPane.showMessageDialog(null, Arrays.toString(controladorReservaVeiculoPorModelo.getMensagensReserva().toArray()), "Existem problemas com a reserva", JOptionPane.ERROR_MESSAGE);
+					
+					controladorReservaVeiculoPorModelo.limparMensagensReserva();
 				}
-				
-				
 			}
 
 			private void validarDadosInseridos()

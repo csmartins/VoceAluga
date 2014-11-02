@@ -186,6 +186,7 @@ public class CadastroVeiculoFrame extends JInternalFrame
 				else
 				{
 					JOptionPane.showMessageDialog(null, Arrays.toString(controladorCadastroVeiculo.getMensagensCadastro().toArray()), "Existem problemas com o cadastro", JOptionPane.ERROR_MESSAGE);
+					controladorCadastroVeiculo.limparMensagensCadastroVeiculo();
 				}
 					
 			}

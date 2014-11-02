@@ -132,4 +132,9 @@ public class ControladorCadastroCliente
 	{
 		this.mensagensCadastro = mensagensCadastro;
 	}
+
+	public void limparMensagensCadastroCliente()
+	{
+		mensagensCadastro.clear();
+	}
 }

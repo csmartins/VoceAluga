@@ -117,6 +117,11 @@ public class ControladorCadastroVeiculo
 		this.mensagensCadastro = mensagensCadastro;
 	}
 
+	public void limparMensagensCadastroVeiculo()
+	{
+		mensagensCadastro.clear();
+	}
+
 	
 
 }

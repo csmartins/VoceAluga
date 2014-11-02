@@ -112,8 +112,9 @@ public class ControladorReservaVeiculoPorModelo
 		popularCliente(cpf);
 		
 		popularVeiculo(marca, modelo);
-		
+			
 		criarReserva(dataInicio, dataFim);
+		
 	}
 
 	private void criarReserva(Date dataInicio, Date dataFim)
@@ -154,6 +155,11 @@ public class ControladorReservaVeiculoPorModelo
 	public void setMensagensReserva(ArrayList<String> mensagensReserva)
 	{
 		this.mensagensReserva = mensagensReserva;
+	}
+
+	public void limparMensagensReserva()
+	{
+		mensagensReserva.clear();
 	}
 	
 

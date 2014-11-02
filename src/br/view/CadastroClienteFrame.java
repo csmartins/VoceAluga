@@ -221,6 +221,7 @@ public class CadastroClienteFrame extends JInternalFrame
 				else
 				{
 					JOptionPane.showMessageDialog(null, Arrays.toString(controladorCadastroCliente.getMensagensCadastro().toArray()), "Existem problemas com o cadastro", JOptionPane.ERROR_MESSAGE);
+					controladorCadastroCliente.limparMensagensCadastroCliente();
 				}
 				
 				

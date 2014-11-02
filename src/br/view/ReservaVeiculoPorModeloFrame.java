@@ -200,6 +200,8 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				controladorReservaVeiculoPorModelo.validarDatas(dtChooserDataInicio.getDate(), dtChooserDataFim.getDate());
 				
 				controladorReservaVeiculoPorModelo.validarMarcaEModelo(cmpTextMarca.getText(), cmpTextModelo.getText());
+				
+				controladorReservaVeiculoPorModelo.verificarClienteCadastrado(cmpTextCPF.getText());
 			}
 		});
 	}

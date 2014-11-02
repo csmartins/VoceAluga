@@ -3,6 +3,8 @@ package br.action;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.NoResultException;
+
 import br.model.Carro;
 import br.model.CarroDAO;
 import br.model.Pessoa;
@@ -158,6 +160,20 @@ public class ControladorReservaVeiculoPorModelo
 	public void limparMensagensReserva()
 	{
 		mensagensReserva.clear();
+	}
+
+	public void verificarClienteCadastrado(String cpf)
+	{
+		try
+		{
+			popularCliente(cpf);			
+		}
+		catch(NoResultException e)
+		{
+			e.printStackTrace();
+			mensagensReserva.add("\nEsse CPF não está cadastrado, por favor cadastre-o.");
+			reservaValida = false;
+		}
 	}
 	
 

@@ -60,6 +60,16 @@ public class CarroDAO extends AbstractDAO
 		
 		return veiculo;
 		
-	} 
+	}
+	
+	public void atualizarVeiculo(Carro veiculo)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.merge(veiculo);
+		
+		transaction.commit();
+	}
 
 }

@@ -118,10 +118,12 @@ public class ControladorReservaVeiculoPorModelo
 
 	private void criarReserva(Date dataInicio, Date dataFim)
 	{
+		veiculo.setDisponivel("false");
 		Reserva reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
 		
 		reservaDAO.persistirReserva(reserva);
 		
+		carroDAO.atualizarVeiculo(veiculo);
 	}
 
 	public void popularVeiculo(String marca, String modelo)

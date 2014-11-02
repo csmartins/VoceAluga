@@ -31,7 +31,7 @@ public class ControladorCadastroCliente
 	{
 		if (!validadorDadosCadastro.validarNome(nome))
 		{
-			mensagensCadastro.add("\nNome deve mais de 3 letras");
+			mensagensCadastro.add("Nome deve mais de 3 letras");
 			cadastroValido = false;
 		}
 

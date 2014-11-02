@@ -2,8 +2,10 @@ package br.model;
 
 import java.util.List;
 
-import javax.persistence.Persistence;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+
+import org.hibernate.Query;
 
 public class ReservaDAO extends AbstractDAO
 {
@@ -59,5 +61,26 @@ public class ReservaDAO extends AbstractDAO
 	{
 		entityManager.close();
 		criarEntityManager("Reserva");
+	}
+	
+	public void apagarReservaAdicionadaNoTeste(String cpf, String marca,
+			String modelo)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		String query = "delete from Reserva"
+							+ "where carro_oid = "
+								+ "(select c.carro_oid from Carro c "
+									+ "where c.modelo = :modelo and c.marca = :marca)"
+							+ "and pessoa_oid = "
+								+ "(select p.pessoa_oid from Pessoa p "
+									+ "where p.cpf = :cpf)";
+		
+		entityManager.createNativeQuery(query, Reserva.class).setParameter("modelo", modelo)
+															 .setParameter("marca", marca)
+															 .setParameter("cpf", cpf).executeUpdate();
+		
+		transaction.commit();
 	}
 }

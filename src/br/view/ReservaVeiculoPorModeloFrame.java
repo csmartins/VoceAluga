@@ -188,6 +188,8 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 					JOptionPane.showMessageDialog(null, Arrays.toString(controladorReservaVeiculoPorModelo.getMensagensReserva().toArray()), "Existem problemas com a reserva", JOptionPane.ERROR_MESSAGE);
 					
 					controladorReservaVeiculoPorModelo.limparMensagensReserva();
+					
+					controladorReservaVeiculoPorModelo.setReservaValida(true);
 				}
 			}
 
@@ -202,6 +204,8 @@ public class ReservaVeiculoPorModeloFrame extends JInternalFrame
 				controladorReservaVeiculoPorModelo.validarMarcaEModelo(cmpTextMarca.getText(), cmpTextModelo.getText());
 				
 				controladorReservaVeiculoPorModelo.verificarClienteCadastrado(cmpTextCPF.getText());
+				
+				controladorReservaVeiculoPorModelo.verificarClienteNaListaNegra(cmpTextCPF.getText());
 			}
 		});
 	}

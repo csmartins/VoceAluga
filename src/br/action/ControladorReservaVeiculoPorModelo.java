@@ -2,11 +2,14 @@ package br.action;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.NoResultException;
 
 import br.model.Carro;
 import br.model.CarroDAO;
+import br.model.ListaNegra;
+import br.model.ListaNegraDAO;
 import br.model.Pessoa;
 import br.model.PessoaDAO;
 import br.model.Reserva;
@@ -24,6 +27,7 @@ public class ControladorReservaVeiculoPorModelo
 	private PessoaDAO pessoaDAO;
 	private CarroDAO carroDAO;
 	private ReservaDAO reservaDAO;
+	private ListaNegraDAO listaNegraDAO;
 	
 	private ArrayList<String> mensagensReserva;
 
@@ -36,6 +40,8 @@ public class ControladorReservaVeiculoPorModelo
 		reservaDAO = new ReservaDAO();
 		
 		mensagensReserva = new ArrayList<String>();
+		
+		listaNegraDAO = new ListaNegraDAO();
 	}
 	
 	public void validarCPF(String cpf)
@@ -174,6 +180,25 @@ public class ControladorReservaVeiculoPorModelo
 			mensagensReserva.add("\nEsse CPF não está cadastrado, por favor cadastre-o.");
 			reservaValida = false;
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public void verificarClienteNaListaNegra(String cpf)
+	{
+		try
+		{
+			ListaNegra entradasListaNegra = listaNegraDAO.recuperarListaNegraPorCPF(cpf);
+		}
+		catch(NoResultException e)
+		{
+			return;
+		}
+		
+		reservaValida = false;
+		mensagensReserva.add("\nEsse cliente possui irregularidades e está na Lista Negra, por favor resolva as irregularidades antes de efetuar uma reserva");
+		
+		
+		
 	}
 	
 

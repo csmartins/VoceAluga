@@ -3,6 +3,7 @@ package br.model;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 
 public class PessoaDAO extends AbstractDAO
@@ -41,6 +42,16 @@ public class PessoaDAO extends AbstractDAO
 		
 		return listaPessoas;
 				
+	}
+	
+	public List<Pessoa> recuperarTodasPessoas()
+	{
+		List<Pessoa> resultado;
+		
+		TypedQuery<Pessoa> query = entityManager.createQuery("select p from Pessoa p", Pessoa.class);
+		resultado = query.getResultList();
+		
+		return resultado;
 	}
 
 	public void apagarPessoaAdicinadaNoTestePorCPF(String cpf)

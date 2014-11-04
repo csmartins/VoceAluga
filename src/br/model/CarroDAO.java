@@ -3,6 +3,7 @@ package br.model;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 
 
@@ -60,6 +61,50 @@ public class CarroDAO extends AbstractDAO
 		
 		return veiculo;
 		
+	}
+	
+	public List<Carro> recuperarTodosCarros()
+	{
+		List<Carro> resultado;
+		
+		TypedQuery<Carro> query = entityManager.createQuery("select c from Carro c", Carro.class);
+		resultado = query.getResultList();
+		
+		return resultado;
+	}
+	
+	public List<Carro> recuperarCarrosDisponiveis()
+	{
+		List<Carro> resultado;
+		
+		TypedQuery<Carro> query = entityManager.createQuery("select c from Carro c where c.disponivel = 'true'", Carro.class);
+		resultado = query.getResultList();
+		
+		return resultado;
+	}
+	
+	public List<Carro> recuperarCarrosPorModelo(String modelo)
+	{
+		List<Carro> resultado;
+		
+		String queryString = "select c from Carro c where c.modelo = '" + modelo + "'";
+		
+		TypedQuery<Carro> query = entityManager.createQuery(queryString, Carro.class);
+		resultado = query.getResultList();
+		
+		return resultado;
+	}
+	
+	public List<Carro> recuperarCarrosDisponiveisPorModelo(String modelo)
+	{
+		List<Carro> resultado;
+		
+		String queryString = "select c from Carro c where c.modelo = '" + modelo + "' and c.disponivel = 'true'";
+		
+		TypedQuery<Carro> query = entityManager.createQuery(queryString, Carro.class);
+		resultado = query.getResultList();
+		
+		return resultado;
 	}
 	
 	public void atualizarVeiculo(Carro veiculo)

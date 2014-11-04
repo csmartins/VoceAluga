@@ -168,11 +168,10 @@ public class ConsultaClienteFrame extends JInternalFrame {
 					Pessoa cliente = controladorConsultaCliente
 							.getCliente(clienteSelecionada);
 
-//					InformacoesReservaFrame informacoesReservaFrame = new InformacoesReservaFrame(
-//							cliente, frame);
-//					desktopPane.add(informacoesReservaFrame);
-//					informacoesReservaFrame.show();
-//					informacoesReservaFrame.setLocation(0, 0);
+					InformacoesClienteFrame informacoesReservaFrame = new InformacoesClienteFrame(cliente);
+					desktopPane.add(informacoesReservaFrame);
+					informacoesReservaFrame.show();
+					informacoesReservaFrame.setLocation(0, 0);
 				}
 			}
 		});

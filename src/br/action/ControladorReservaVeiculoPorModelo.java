@@ -51,8 +51,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarCPF(cpf))
 		{
-			mensagensReserva.add("\nDigite o cpf do cliente que está reservando este veículo");
-			reservaValida = false;
+			invalidarReserva("\nDigite o cpf do cliente que está reservando este veículo");
 		}
 	}
 
@@ -60,8 +59,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarModelo(modelo))
 		{
-			mensagensReserva.add("\nDigite o modelo do veículo a ser reservado");
-			reservaValida = false;
+			invalidarReserva("\nDigite o modelo do veículo a ser reservado");
 		}
 		
 	}
@@ -70,8 +68,7 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarMarca(marca))
 		{
-			mensagensReserva.add("\nDigite a marca do veículo a ser reservado");
-			reservaValida = false;
+			invalidarReserva("\nDigite a marca do veículo a ser reservado");
 		}
 		
 	}
@@ -83,8 +80,7 @@ public class ControladorReservaVeiculoPorModelo
 		
 		if(!validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo))
 		{
-			mensagensReserva.add("\nNão existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
-			reservaValida = false;
+			invalidarReserva("\nNão existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
 		}
 	}
 
@@ -92,20 +88,17 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		if(!validadorDadosReservaVeiculo.validarDataInicio(dataInicio))
 		{
-			mensagensReserva.add("\nInforme a data de início da reserva");
-			reservaValida = false;
+			invalidarReserva("\nInforme a data de início da reserva");
 		}
 		
 		if(!validadorDadosReservaVeiculo.validarDataFim(dataFim))
 		{
-			mensagensReserva.add("\nInforme a data de vencimento da reserva");
-			reservaValida = false;
+			invalidarReserva("\nInforme a data de vencimento da reserva");
 		}
 		
 		if (!validadorDadosReservaVeiculo.validarDataFimDepoisDataInicio(dataInicio, dataFim))
 		{
-			mensagensReserva.add("\nData de fim deve ser depois da data de início.");
-			reservaValida = false;
+			invalidarReserva("\nData de fim deve ser depois da data de início.");
 		}
 		
 		verificarDisponibilidadeVeiculoParaDatasDigitadas(dataInicio, dataFim);
@@ -125,43 +118,37 @@ public class ControladorReservaVeiculoPorModelo
 			
 			if(dataInicioCadastrada.after(dataInicio) && dataInicioCadastrada.before(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 			
 			if(dataFimCadastrada.after(dataInicio) && dataFimCadastrada.before(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 			
 			if(dataInicioCadastrada.before(dataInicio) && dataFimCadastrada.after(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 			
 			if(dataInicioCadastrada.after(dataInicio) && dataFimCadastrada.before(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 			
 			if(dataInicioCadastrada.equals(dataInicio) || dataInicioCadastrada.equals(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 			
 			if(dataFimCadastrada.equals(dataInicio) || dataFimCadastrada.equals(dataFim))
 			{
-				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
-				reservaValida = false;
+				invalidarReserva("\nJá existe uma reserva para este veículo no período digitado.");
 				return;
 			}
 		}
@@ -243,8 +230,7 @@ public class ControladorReservaVeiculoPorModelo
 		catch(NoResultException e)
 		{
 			e.printStackTrace();
-			mensagensReserva.add("\nEsse CPF não está cadastrado, por favor cadastre-o.");
-			reservaValida = false;
+			invalidarReserva("\nEsse CPF não está cadastrado, por favor cadastre-o.");
 		}
 	}
 
@@ -260,9 +246,12 @@ public class ControladorReservaVeiculoPorModelo
 			return;
 		}
 		
-		reservaValida = false;
-		mensagensReserva.add("\nEsse cliente possui irregularidades e está na Lista Negra, por favor resolva as irregularidades antes de efetuar uma reserva");
+		invalidarReserva("\nEsse cliente possui irregularidades e está na Lista Negra, por favor resolva as irregularidades antes de efetuar uma reserva");
 	}
 	
-	
+	private void invalidarReserva(String mensagem)
+	{
+		mensagensReserva.add(mensagem);
+		reservaValida = false;
+	}
 }

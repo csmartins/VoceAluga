@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-import org.hibernate.Query;
-
 public class ReservaDAO extends AbstractDAO
 {
 	
@@ -51,10 +49,26 @@ public class ReservaDAO extends AbstractDAO
 	{
 		List<Reserva> resultado;
 		
-		TypedQuery<Reserva> query = entityManager.createQuery("select r from Reserva r where r.pessoa.cpf = " + cpf, Reserva.class);
+		String consulta = "select r from Reserva r where r.pessoa.cpf = ";
+		
+		TypedQuery<Reserva> query = entityManager.createQuery( consulta + cpf, Reserva.class);
 		resultado = query.getResultList();
 		
 		return resultado;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Reserva> recuperarReservasPorMarcaEModelo(String marca,
+			String modelo)
+	{
+		String query = "select * from Reserva "
+							+ "where carro_oid = "
+								+ "(select c.carro_oid from Carro c "
+									+ "where c.modelo = :modelo and c.marca = :marca)";
+		
+		List<Reserva> listaReservas = entityManager.createNativeQuery(query, Reserva.class).setParameter("modelo", modelo).setParameter("marca", marca).getResultList();
+		
+		return listaReservas;
 	}
 	
 	public void refresh()
@@ -83,4 +97,6 @@ public class ReservaDAO extends AbstractDAO
 		
 		transaction.commit();
 	}
+
+	
 }

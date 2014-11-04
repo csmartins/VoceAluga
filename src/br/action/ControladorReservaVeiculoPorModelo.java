@@ -24,6 +24,9 @@ public class ControladorReservaVeiculoPorModelo
 	private Pessoa cliente;
 	private Carro veiculo;
 	
+	private String marca;
+	private String modelo;
+	
 	private PessoaDAO pessoaDAO;
 	private CarroDAO carroDAO;
 	private ReservaDAO reservaDAO;
@@ -75,6 +78,9 @@ public class ControladorReservaVeiculoPorModelo
 	
 	public void validarMarcaEModelo(String marca, String modelo)
 	{
+		this.marca = marca;
+		this.modelo = modelo;
+		
 		if(!validadorDadosReservaVeiculo.validarExistenciaDeVeiculoParaMarcaEModelo(marca, modelo))
 		{
 			mensagensReserva.add("\nNão existe um carro disponivel para essa marca e modelo. Entre em contato com outra filial");
@@ -101,6 +107,64 @@ public class ControladorReservaVeiculoPorModelo
 			mensagensReserva.add("\nData de fim deve ser depois da data de início.");
 			reservaValida = false;
 		}
+		
+		verificarDisponibilidadeVeiculoParaDatasDigitadas(dataInicio, dataFim);
+	}
+
+	private void verificarDisponibilidadeVeiculoParaDatasDigitadas(Date dataInicio, Date dataFim)
+	{
+		List<Reserva> reservasCarro = reservaDAO.recuperarReservasPorMarcaEModelo(marca, modelo);
+		
+		Date dataInicioCadastrada;
+		Date dataFimCadastrada;
+		
+		for(Reserva reserva : reservasCarro)
+		{
+			dataInicioCadastrada = reserva.getDataInicio();
+			dataFimCadastrada = reserva.getDataFim();
+			
+			if(dataInicioCadastrada.after(dataInicio) && dataInicioCadastrada.before(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+			
+			if(dataFimCadastrada.after(dataInicio) && dataFimCadastrada.before(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+			
+			if(dataInicioCadastrada.before(dataInicio) && dataFimCadastrada.after(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+			
+			if(dataInicioCadastrada.after(dataInicio) && dataFimCadastrada.before(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+			
+			if(dataInicioCadastrada.equals(dataInicio) || dataInicioCadastrada.equals(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+			
+			if(dataFimCadastrada.equals(dataInicio) || dataFimCadastrada.equals(dataFim))
+			{
+				mensagensReserva.add("\nJá existe uma reserva para este veículo no período digitado.");
+				reservaValida = false;
+				return;
+			}
+		}
 	}
 
 	public boolean isReservaValida()
@@ -125,7 +189,7 @@ public class ControladorReservaVeiculoPorModelo
 
 	private void criarReserva(Date dataInicio, Date dataFim)
 	{
-		veiculo.setDisponivel("false");
+		//veiculo.setDisponivel("false");
 		Reserva reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
 		
 		reservaDAO.persistirReserva(reserva);
@@ -154,10 +218,12 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		this.veiculo = veiculo;
 	}
+	
 	public ArrayList<String> getMensagensReserva()
 	{
 		return mensagensReserva;
 	}
+	
 	public void setMensagensReserva(ArrayList<String> mensagensReserva)
 	{
 		this.mensagensReserva = mensagensReserva;
@@ -196,10 +262,7 @@ public class ControladorReservaVeiculoPorModelo
 		
 		reservaValida = false;
 		mensagensReserva.add("\nEsse cliente possui irregularidades e está na Lista Negra, por favor resolva as irregularidades antes de efetuar uma reserva");
-		
-		
-		
 	}
 	
-
+	
 }

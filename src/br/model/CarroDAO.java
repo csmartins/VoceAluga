@@ -125,7 +125,5 @@ public class CarroDAO extends AbstractDAO
 		entityManager.merge(veiculo);
 		
 		transaction.commit();
-		
 	}
-
 }

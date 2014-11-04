@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Carro" table="Carro" catalog="VoceAluga">
+        <id name="carroOid" type="string">
+            <column name="carro_oid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="modelo" type="string">
+            <column name="modelo" length="45" not-null="true" />
+        </property>
+        <property name="placa" type="string">
+            <column name="placa" length="45" not-null="true" />
+        </property>
+        <property name="ano" type="int">
+            <column name="ano" not-null="true" />
+        </property>
+        <property name="ultimaManutencao" type="date">
+            <column name="ultimaManutencao" length="10" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="45" not-null="true" />
+        </property>
+        <property name="disponivel" type="string">
+            <column name="disponivel" length="45" not-null="true" />
+        </property>
+        <property name="preco" type="big_decimal">
+            <column name="preco" precision="6" />
+        </property>
+        <property name="diaria" type="big_decimal">
+            <column name="diaria" precision="6" />
+        </property>
+        <set name="reservas" table="Reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="carro_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Reserva" />
+        </set>
+        <set name="manutencaos" table="Manutencao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="carro_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Manutencao" />
+        </set>
+        <set name="aluguels" table="Aluguel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="carro_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Aluguel" />
+        </set>
+    </class>
+</hibernate-mapping>

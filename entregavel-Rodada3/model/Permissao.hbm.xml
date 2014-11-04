@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Permissao" table="Permissao" catalog="VoceAluga">
+        <id name="permissaoOid" type="string">
+            <column name="permissao_oid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="perfilOid" type="string">
+            <column name="perfil_oid" length="45" not-null="true" />
+        </property>
+        <property name="pessoaOid" type="string">
+            <column name="pessoa_oid" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

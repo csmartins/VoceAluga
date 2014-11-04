@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="br.model.Pessoa" table="Pessoa" catalog="VoceAluga">
+        <id name="pessoaOid" type="string">
+            <column name="pessoa_oid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" not-null="true" />
+        </property>
+        <property name="cpf" type="string">
+            <column name="cpf" length="12" not-null="true" />
+        </property>
+        <property name="rg" type="string">
+            <column name="rg" length="10" not-null="true" />
+        </property>
+        <property name="carteira" type="string">
+            <column name="carteira" length="10" />
+        </property>
+        <property name="categoriaCarteira" type="java.lang.Character">
+            <column name="categoriaCarteira" length="1" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="8" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <set name="aluguels" table="Aluguel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pessoa_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Aluguel" />
+        </set>
+        <set name="reservas" table="Reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pessoa_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Reserva" />
+        </set>
+        <set name="filials" table="Filial" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pessoa_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.Filial" />
+        </set>
+        <set name="listaNegras" table="ListaNegra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pessoa_oid" length="45" not-null="true" />
+            </key>
+            <one-to-many class="br.model.ListaNegra" />
+        </set>
+    </class>
+</hibernate-mapping>

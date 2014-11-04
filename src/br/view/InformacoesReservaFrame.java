@@ -60,7 +60,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 							.addGap(14))
 						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addComponent(btnVoltar)
-							.addGap(243))))
+							.addGap(244))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -90,6 +90,13 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		btnCancelar.setVisible(controladorInformacoesReserva.reservaPodeSerCancelada());
 		
 		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
+		
+		JButton btnAlugar = new JButton("Alugar");
+		btnAlugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);
 		gl_pnlInfoReserva.setHorizontalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
@@ -104,11 +111,12 @@ public class InformacoesReservaFrame extends JInternalFrame {
 								.addComponent(lblDataDeFim)
 								.addComponent(lblDataDeIncio)
 								.addComponent(lblValor)
-								.addComponent(lblPagoAntecipadamente)))
-						.addGroup(gl_pnlInfoReserva.createSequentialGroup()
-							.addGap(82)
-							.addComponent(btnCancelar)))
-					.addContainerGap(48, Short.MAX_VALUE))
+								.addComponent(lblPagoAntecipadamente)
+								.addGroup(gl_pnlInfoReserva.createSequentialGroup()
+									.addComponent(btnCancelar)
+									.addGap(34)
+									.addComponent(btnAlugar)))))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_pnlInfoReserva.setVerticalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
@@ -124,7 +132,9 @@ public class InformacoesReservaFrame extends JInternalFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblPagoAntecipadamente)
 					.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-					.addComponent(btnCancelar)
+					.addGroup(gl_pnlInfoReserva.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnCancelar)
+						.addComponent(btnAlugar))
 					.addContainerGap())
 		);
 		pnlInfoReserva.setLayout(gl_pnlInfoReserva);

@@ -23,4 +23,10 @@ public class AbstractDAO
 		
 		return oid.toString();
 	}
+	
+	public void refresh(String entidade)
+	{
+		entityManager.close();
+		criarEntityManager(entidade);
+	}
 }

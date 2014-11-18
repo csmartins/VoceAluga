@@ -31,7 +31,7 @@ public class ControladorConsultaReserva
 	
 	public void atualizarListadeReservas()
 	{
-		reservaDAO.refresh();
+		reservaDAO.refresh("Reserva");
 		reservas.clear();
 		prepopular();
 	}

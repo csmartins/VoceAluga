@@ -71,12 +71,6 @@ public class ReservaDAO extends AbstractDAO
 		return listaReservas;
 	}
 	
-	public void refresh()
-	{
-		entityManager.close();
-		criarEntityManager("Reserva");
-	}
-	
 	public void apagarReservaAdicionadaNoTeste(String cpf, String marca,
 			String modelo)
 	{

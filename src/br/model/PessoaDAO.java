@@ -64,6 +64,15 @@ public class PessoaDAO extends AbstractDAO
 		
 		transaction.commit();
 	}
-	
-	
+
+	public void removerClienteListaNegra(String pessoaOid)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		String query = "delete from ListaNegra where pessoa_oid = :pessoa_oid";
+		entityManager.createNativeQuery(query, ListaNegra.class).setParameter("pessoa_oid", pessoaOid).executeUpdate();
+		
+		transaction.commit();
+	}	
 }

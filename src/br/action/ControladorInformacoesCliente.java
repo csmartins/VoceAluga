@@ -1,6 +1,9 @@
 package br.action;
 
+import br.model.ListaNegra;
+import br.model.ListaNegraDAO;
 import br.model.Pessoa;
+import br.model.PessoaDAO;
 
 public class ControladorInformacoesCliente {
 	
@@ -54,5 +57,27 @@ public class ControladorInformacoesCliente {
 	public boolean clienteEstaNaListaNegra()
 	{
 		return !cliente.getListaNegras().isEmpty();
+	}
+	
+	public void removerClienteListaNegra()
+	{
+		PessoaDAO pessoaDAO = new PessoaDAO();
+		
+		pessoaDAO.removerClienteListaNegra(cliente.getPessoaOid());
+		
+		pessoaDAO.refresh("Pessoa");
+		
+	}
+
+	public void adicionarListaNegra()
+	{
+		ListaNegra listaNegra = new ListaNegra();
+		
+		listaNegra.setPessoa(cliente);
+		
+		ListaNegraDAO listaNegraDAO = new ListaNegraDAO();
+		
+		listaNegraDAO.persistirListaNegra(listaNegra);
+		
 	}
 }

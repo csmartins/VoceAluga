@@ -19,4 +19,16 @@ public class ListaNegraDAO extends AbstractDAO
 		return listaNegra;
 	}
 
+	public void persistirListaNegra(ListaNegra listaNegra)
+	{
+		listaNegra.setListaNegraOid(criarOid());
+		
+		entityManager.getTransaction().begin();
+		entityManager.persist(listaNegra);
+		entityManager.getTransaction().commit();
+
+		entityManager.close();
+		
+	}
+
 }

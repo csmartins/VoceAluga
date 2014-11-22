@@ -10,6 +10,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.action.ControladorInformacoesCliente;
@@ -140,9 +141,21 @@ public class InformacoesClienteFrame extends JInternalFrame {
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				controladorInformacoesCliente.removerClienteListaNegra();
-				
-				frame.getContentPane().repaint();
+				try
+				{
+					pessoa.getListaNegras().clear();
+					
+					controladorInformacoesCliente.removerClienteListaNegra();
+					
+					JOptionPane.showMessageDialog(null, "O cliente foi removido da lista negra com sucesso");
+					
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
 			}
 		});
 	}
@@ -151,9 +164,24 @@ public class InformacoesClienteFrame extends JInternalFrame {
 	{
 		btnAdicionarListaNegra.addActionListener(new ActionListener()
 		{
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent arg0)
 			{
-				controladorInformacoesCliente.adicionarListaNegra();
+				try
+				{
+					pessoa.getListaNegras().add(true);
+					
+					controladorInformacoesCliente.adicionarListaNegra();
+					
+					JOptionPane.showMessageDialog(null, "O cliente foi adicionado à lista negra com sucesso");
+					
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
 			}
 		});
 	}

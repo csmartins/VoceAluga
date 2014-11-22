@@ -9,6 +9,8 @@ public class ControladorInformacoesCliente {
 	
 	private Pessoa cliente;
 	
+	private ControladorConsultaCliente controladorConsultaCliente;
+	
 	public ControladorInformacoesCliente(Pessoa cliente)
 	{
 		this.cliente = cliente;
@@ -66,6 +68,10 @@ public class ControladorInformacoesCliente {
 		pessoaDAO.removerClienteListaNegra(cliente.getPessoaOid());
 		
 		pessoaDAO.refresh("Pessoa");
+		
+		controladorConsultaCliente = new ControladorConsultaCliente();
+		
+		controladorConsultaCliente.filtrarClientes("");
 		
 	}
 

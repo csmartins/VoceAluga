@@ -27,6 +27,8 @@ public class ListaNegraDAO extends AbstractDAO
 		entityManager.persist(listaNegra);
 		entityManager.getTransaction().commit();
 
+		refresh("ListaNegra");
+		
 		entityManager.close();
 		
 	}

@@ -8,6 +8,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -20,7 +21,6 @@ import javax.swing.border.BevelBorder;
 
 import br.action.ControladorConsultaVeiculo;
 import br.model.Carro;
-import javax.swing.JCheckBox;
 
 public class ConsultaVeiculoFrame extends JInternalFrame {
 
@@ -173,10 +173,10 @@ public class ConsultaVeiculoFrame extends JInternalFrame {
 					Carro veiculo = controladorConsultaVeiculo
 							.getVeiculo(veiculoSelecionado);
 
-//					InformacoesVeiculoFrame informacoesVeiculoFrame = new InformacoesVeiculoFrame(veiculo);
-//					desktopPane.add(informacoesVeiculoFrame);
-//					informacoesVeiculoFrame.show();
-//					informacoesVeiculoFrame.setLocation(0, 0);
+					InformacoesVeiculoFrame informacoesVeiculoFrame = new InformacoesVeiculoFrame(veiculo);
+					desktopPane.add(informacoesVeiculoFrame);
+					informacoesVeiculoFrame.show();
+					informacoesVeiculoFrame.setLocation(0, 0);
 				}
 			}
 		});

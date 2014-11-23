@@ -10,12 +10,15 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import br.action.ControladorConsultaVeiculo;
 import br.action.ControladorInformacoesVeiculo;
 import br.model.Carro;
 
-public class InformacoesVeiculoFrame extends JInternalFrame {
+public class InformacoesVeiculoFrame extends JInternalFrame 
+{
 	private static final long serialVersionUID = 945196386534467283L;
 	
 	private ControladorInformacoesVeiculo controladorInformacoesVeiculo;
@@ -23,8 +26,9 @@ public class InformacoesVeiculoFrame extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InformacoesVeiculoFrame(Carro veiculo) {
-		controladorInformacoesVeiculo = new ControladorInformacoesVeiculo(veiculo);
+	public InformacoesVeiculoFrame(Carro veiculo, ControladorConsultaVeiculo controladorConsultaVeiculo) 
+	{
+		controladorInformacoesVeiculo = new ControladorInformacoesVeiculo(veiculo, controladorConsultaVeiculo);
 
 		setBorder(null);
 		setClosable(true);
@@ -58,6 +62,14 @@ public class InformacoesVeiculoFrame extends JInternalFrame {
 		
 		JLabel lblTxtDisponivel = new JLabel("Disponivel:");
 		
+		JButton btnEnviarParaManutencao = new JButton("Enviar Para Manutenção");
+		criarBotaoEnviarManutencao(btnEnviarParaManutencao);
+		btnEnviarParaManutencao.setVisible(isVeiculoDisponivel(veiculo));
+		
+		JButton btnRemoverDaManutencao = new JButton("Remover da Manutenção");
+		criarBotaoRemoverManutencao(btnRemoverDaManutencao);
+		btnRemoverDaManutencao.setVisible(!isVeiculoDisponivel(veiculo));
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -73,7 +85,12 @@ public class InformacoesVeiculoFrame extends JInternalFrame {
 							.addComponent(lblAnoano)
 							.addGap(23)
 							.addComponent(label))
-						.addComponent(btnVoltar)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnVoltar)
+							.addGap(28)
+							.addComponent(btnEnviarParaManutencao)
+							.addGap(18)
+							.addComponent(btnRemoverDaManutencao))
 						.addComponent(lblPlaca)
 						.addComponent(lblltimaManutencao)
 						.addComponent(lblDiaria)
@@ -82,7 +99,7 @@ public class InformacoesVeiculoFrame extends JInternalFrame {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblDisponivel))
 						.addComponent(lblPreco))
-					.addContainerGap(247, Short.MAX_VALUE))
+					.addContainerGap(124, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -109,14 +126,69 @@ public class InformacoesVeiculoFrame extends JInternalFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTxtDisponivel)
 						.addComponent(lblDisponivel))
-					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-					.addComponent(btnVoltar)
+					.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnVoltar)
+						.addComponent(btnEnviarParaManutencao)
+						.addComponent(btnRemoverDaManutencao))
 					.addContainerGap())
 		);
 		getContentPane().setLayout(groupLayout);
 
 	}
+
+	private void criarBotaoRemoverManutencao(JButton btnRemoverDaManuteno)
+	{
+		btnRemoverDaManuteno.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				try
+				{
+					controladorInformacoesVeiculo.removerManutencao();
+					
+					JOptionPane.showMessageDialog(null, "Veiculo removido da manutenção.");
+
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+	private void criarBotaoEnviarManutencao(JButton btnEnviarParaManutencao)
+	{
+		btnEnviarParaManutencao.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				try
+				{
+					controladorInformacoesVeiculo.enviarManutencao();
+					
+					JOptionPane.showMessageDialog(null, "Veiculo enviado para manutenção.");
+
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
+	private boolean isVeiculoDisponivel(Carro veiculo)
+	{
+		return controladorInformacoesVeiculo.veiculoEstaDisponivel();
+	}
+
 	private void criarBotaoVoltar(JButton btnVoltar) 
 	{
 		btnVoltar.addActionListener(new ActionListener() 

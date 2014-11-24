@@ -47,6 +47,16 @@ public class ControladorInformacoesVeiculo {
 		return veiculoEstaDisponivel() ? "Sim" : "Não";
 	}
 	
+	public String isVeiculoVendido()
+	{
+		return veiculoVendido() ? "Sim" : "Não";
+	}
+	
+	public boolean veiculoVendido()
+	{
+		return veiculo.getVendido().equals("true");
+	}
+	
 	public String getAnoVeiculo() {
 		return String.valueOf(veiculo.getAno());
 	}
@@ -120,4 +130,6 @@ public class ControladorInformacoesVeiculo {
 		
 		carroDAO.atualizarVeiculo(veiculo);
 	}
+
+	
 }

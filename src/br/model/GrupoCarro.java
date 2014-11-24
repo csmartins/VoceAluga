@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
+// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class GrupoCarro implements java.io.Serializable
 {
 
-	private int grupoCarroOid;
+	private String grupoCarroOid;
 	private Integer total;
 	private Integer disponiveis;
 	private String descricao;
@@ -24,13 +24,13 @@ public class GrupoCarro implements java.io.Serializable
 	{
 	}
 
-	public GrupoCarro(int grupoCarroOid, String descricao)
+	public GrupoCarro(String grupoCarroOid, String descricao)
 	{
 		this.grupoCarroOid = grupoCarroOid;
 		this.descricao = descricao;
 	}
 
-	public GrupoCarro(int grupoCarroOid, Integer total, Integer disponiveis,
+	public GrupoCarro(String grupoCarroOid, Integer total, Integer disponiveis,
 			String descricao)
 	{
 		this.grupoCarroOid = grupoCarroOid;
@@ -40,13 +40,13 @@ public class GrupoCarro implements java.io.Serializable
 	}
 
 	@Id
-	@Column(name = "grupoCarro_oid", unique = true, nullable = false)
-	public int getGrupoCarroOid()
+	@Column(name = "grupoCarro_oid", unique = true, nullable = false, length = 45)
+	public String getGrupoCarroOid()
 	{
 		return this.grupoCarroOid;
 	}
 
-	public void setGrupoCarroOid(int grupoCarroOid)
+	public void setGrupoCarroOid(String grupoCarroOid)
 	{
 		this.grupoCarroOid = grupoCarroOid;
 	}

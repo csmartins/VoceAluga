@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
+// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +20,7 @@ public class ListaNegra implements java.io.Serializable
 
 	private String listaNegraOid;
 	private Pessoa pessoa;
+	private String justificativa;
 
 	public ListaNegra()
 	{
@@ -29,6 +30,13 @@ public class ListaNegra implements java.io.Serializable
 	{
 		this.listaNegraOid = listaNegraOid;
 		this.pessoa = pessoa;
+	}
+
+	public ListaNegra(String listaNegraOid, Pessoa pessoa, String justificativa)
+	{
+		this.listaNegraOid = listaNegraOid;
+		this.pessoa = pessoa;
+		this.justificativa = justificativa;
 	}
 
 	@Id
@@ -53,6 +61,17 @@ public class ListaNegra implements java.io.Serializable
 	public void setPessoa(Pessoa pessoa)
 	{
 		this.pessoa = pessoa;
+	}
+
+	@Column(name = "justificativa", length = 300)
+	public String getJustificativa()
+	{
+		return this.justificativa;
+	}
+
+	public void setJustificativa(String justificativa)
+	{
+		this.justificativa = justificativa;
 	}
 
 }

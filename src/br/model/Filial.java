@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
+// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,25 +24,29 @@ public class Filial implements java.io.Serializable
 	private String filialOid;
 	private Pessoa pessoa;
 	private String descricao;
+	private int numFilial;
 	private Set manutencaos = new HashSet(0);
 
 	public Filial()
 	{
 	}
 
-	public Filial(String filialOid, Pessoa pessoa, String descricao)
+	public Filial(String filialOid, Pessoa pessoa, String descricao,
+			int numFilial)
 	{
 		this.filialOid = filialOid;
 		this.pessoa = pessoa;
 		this.descricao = descricao;
+		this.numFilial = numFilial;
 	}
 
 	public Filial(String filialOid, Pessoa pessoa, String descricao,
-			Set manutencaos)
+			int numFilial, Set manutencaos)
 	{
 		this.filialOid = filialOid;
 		this.pessoa = pessoa;
 		this.descricao = descricao;
+		this.numFilial = numFilial;
 		this.manutencaos = manutencaos;
 	}
 
@@ -79,6 +83,17 @@ public class Filial implements java.io.Serializable
 	public void setDescricao(String descricao)
 	{
 		this.descricao = descricao;
+	}
+
+	@Column(name = "num_Filial", nullable = false)
+	public int getNumFilial()
+	{
+		return this.numFilial;
+	}
+
+	public void setNumFilial(int numFilial)
+	{
+		this.numFilial = numFilial;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "filial")

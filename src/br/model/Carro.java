@@ -1,11 +1,12 @@
 package br.model;
 
-// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
+// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,6 +33,7 @@ public class Carro implements java.io.Serializable
 	private String disponivel;
 	private BigDecimal preco;
 	private BigDecimal diaria;
+	private String vendido;
 	private Set reservas = new HashSet(0);
 	private Set manutencaos = new HashSet(0);
 	private Set aluguels = new HashSet(0);
@@ -41,7 +43,7 @@ public class Carro implements java.io.Serializable
 	}
 
 	public Carro(String carroOid, String modelo, String placa, int ano,
-			String marca, String disponivel)
+			String marca, String disponivel, String vendido)
 	{
 		this.carroOid = carroOid;
 		this.modelo = modelo;
@@ -49,11 +51,32 @@ public class Carro implements java.io.Serializable
 		this.ano = ano;
 		this.marca = marca;
 		this.disponivel = disponivel;
+		this.vendido = vendido;
+	}
+
+	public Carro(String carroOid, String modelo, String placa, int ano,
+			Date ultimaManutencao, String marca, String disponivel,
+			BigDecimal preco, BigDecimal diaria, String vendido, Set reservas,
+			Set manutencaos, Set aluguels)
+	{
+		this.carroOid = carroOid;
+		this.modelo = modelo;
+		this.placa = placa;
+		this.ano = ano;
+		this.ultimaManutencao = ultimaManutencao;
+		this.marca = marca;
+		this.disponivel = disponivel;
+		this.preco = preco;
+		this.diaria = diaria;
+		this.vendido = vendido;
+		this.reservas = reservas;
+		this.manutencaos = manutencaos;
+		this.aluguels = aluguels;
 	}
 
 	public Carro(String modelo, String placa, int ano,
 			Date ultimaManutencao, String marca, String disponivel,
-			BigDecimal preco, BigDecimal diaria)
+			BigDecimal preco, BigDecimal diaria, String vendido)
 	{
 		this.modelo = modelo;
 		this.placa = placa;
@@ -63,17 +86,7 @@ public class Carro implements java.io.Serializable
 		this.disponivel = disponivel;
 		this.preco = preco;
 		this.diaria = diaria;
-	}
-	
-	public Carro(String modelo, String placa, int ano,
-			Date ultimaManutencao, String marca, String disponivel)
-	{
-		this.modelo = modelo;
-		this.placa = placa;
-		this.ano = ano;
-		this.ultimaManutencao = ultimaManutencao;
-		this.marca = marca;
-		this.disponivel = disponivel;
+		this.vendido = vendido;
 	}
 
 	@Id
@@ -155,7 +168,7 @@ public class Carro implements java.io.Serializable
 		this.disponivel = disponivel;
 	}
 
-	@Column(name = "preco", precision = 10)
+	@Column(name = "preco", precision = 50)
 	public BigDecimal getPreco()
 	{
 		return this.preco;
@@ -166,7 +179,7 @@ public class Carro implements java.io.Serializable
 		this.preco = preco;
 	}
 
-	@Column(name = "diaria", precision = 6)
+	@Column(name = "diaria", precision = 50)
 	public BigDecimal getDiaria()
 	{
 		return this.diaria;
@@ -175,6 +188,17 @@ public class Carro implements java.io.Serializable
 	public void setDiaria(BigDecimal diaria)
 	{
 		this.diaria = diaria;
+	}
+
+	@Column(name = "vendido", nullable = false, length = 45)
+	public String getVendido()
+	{
+		return this.vendido;
+	}
+
+	public void setVendido(String vendido)
+	{
+		this.vendido = vendido;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "carro")

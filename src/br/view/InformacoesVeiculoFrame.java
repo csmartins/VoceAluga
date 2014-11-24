@@ -64,11 +64,13 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 		
 		JButton btnEnviarParaManutencao = new JButton("Enviar Para Manutenção");
 		criarBotaoEnviarManutencao(btnEnviarParaManutencao);
-		btnEnviarParaManutencao.setVisible(isVeiculoDisponivel(veiculo));
+		btnEnviarParaManutencao.setVisible(isVeiculoDisponivel(veiculo) && !controladorInformacoesVeiculo.veiculoVendido());
 		
 		JButton btnRemoverDaManutencao = new JButton("Remover da Manutenção");
 		criarBotaoRemoverManutencao(btnRemoverDaManutencao);
-		btnRemoverDaManutencao.setVisible(!isVeiculoDisponivel(veiculo));
+		btnRemoverDaManutencao.setVisible(!isVeiculoDisponivel(veiculo) && !controladorInformacoesVeiculo.veiculoVendido());
+		
+		JLabel lblVendido = new JLabel("Vendido: " + controladorInformacoesVeiculo.isVeiculoVendido());
 		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -76,7 +78,6 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNome)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblMarca)
 							.addGap(18)
@@ -98,8 +99,13 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 							.addComponent(lblTxtDisponivel)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblDisponivel))
-						.addComponent(lblPreco))
-					.addContainerGap(124, Short.MAX_VALUE))
+						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblPreco)
+								.addGap(42)
+								.addComponent(lblVendido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addComponent(lblNome, Alignment.LEADING)))
+					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -121,7 +127,9 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 					.addGap(18)
 					.addComponent(lblDiaria)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblPreco)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPreco)
+						.addComponent(lblVendido))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTxtDisponivel)

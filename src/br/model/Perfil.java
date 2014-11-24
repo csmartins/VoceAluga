@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 16/09/2014 16:15:30 by Hibernate Tools 3.4.0.CR1
+// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Perfil implements java.io.Serializable
 {
 
-	private int perfilOid;
+	private String perfilOid;
 	private String descricao;
 	private String nome;
 
@@ -23,7 +23,7 @@ public class Perfil implements java.io.Serializable
 	{
 	}
 
-	public Perfil(int perfilOid, String descricao, String nome)
+	public Perfil(String perfilOid, String descricao, String nome)
 	{
 		this.perfilOid = perfilOid;
 		this.descricao = descricao;
@@ -31,13 +31,13 @@ public class Perfil implements java.io.Serializable
 	}
 
 	@Id
-	@Column(name = "perfil_oid", unique = true, nullable = false)
-	public int getPerfilOid()
+	@Column(name = "perfil_oid", unique = true, nullable = false, length = 45)
+	public String getPerfilOid()
 	{
 		return this.perfilOid;
 	}
 
-	public void setPerfilOid(int perfilOid)
+	public void setPerfilOid(String perfilOid)
 	{
 		this.perfilOid = perfilOid;
 	}

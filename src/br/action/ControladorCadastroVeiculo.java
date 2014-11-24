@@ -99,9 +99,10 @@ public class ControladorCadastroVeiculo
 	public void cadastrar(String marca, String placa, String modelo, int ano,
 			Date ultimaManutencao, Boolean disponivel, String preco, String diaria)
 	{
+		String vendido = "false";
 		
 		Carro veiculo = new Carro(modelo, placa, ano, ultimaManutencao, marca,
-				disponivel.toString(), new BigDecimal(preco), new BigDecimal(diaria));
+				disponivel.toString(), new BigDecimal(preco), new BigDecimal(diaria), vendido);
 
 		carroDAO.persistirVeiculo(veiculo);
 	}

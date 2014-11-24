@@ -2,6 +2,7 @@ package br.action;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import br.model.Carro;
 import br.model.CarroDAO;
@@ -69,6 +70,8 @@ public class ControladorInformacoesVeiculo {
 	public void enviarManutencao()
 	{
 		veiculo.setDisponivel("false");
+		
+		veiculo.setUltimaManutencao(new Date());
 		
 		atualizarVeiculo();
 

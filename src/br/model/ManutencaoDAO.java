@@ -33,4 +33,12 @@ public class ManutencaoDAO extends AbstractDAO
 		
 		transaction.commit();
 	}
+	
+	public Manutencao recuperarManutencaoPorCarro(String carroOid)
+	{
+		String query = "select * from Manutencao where carro_oid = :carro";
+		Manutencao manutencao = (Manutencao) entityManager.createNativeQuery(query, Manutencao.class).setParameter("carro", carroOid).getSingleResult();
+		
+		return manutencao;
+	}
 }

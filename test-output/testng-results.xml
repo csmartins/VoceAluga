@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11084" started-at="2014-11-26T12:22:59Z" finished-at="2014-11-26T12:23:10Z">
+  <suite name="Default suite" duration-ms="14932" started-at="2014-11-26T13:12:47Z" finished-at="2014-11-26T13:13:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11084" started-at="2014-11-26T12:22:59Z" finished-at="2014-11-26T12:23:10Z">
-      <class name="br.test.ControladorInformacoesReservaFunctionalTest">
-        <test-method status="PASS" signature="testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva()[pri:0, instance:br.test.ControladorInformacoesReservaFunctionalTest@3b5fd4a3]" name="testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva" duration-ms="7580" started-at="2014-11-26T10:22:59Z" finished-at="2014-11-26T10:23:07Z">
+    <test name="Default test" duration-ms="14932" started-at="2014-11-26T13:12:47Z" finished-at="2014-11-26T13:13:02Z">
+      <class name="br.test.ControladorInformacoesVeiculoFunctionalTest">
+        <test-method status="PASS" signature="testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao()[pri:0, instance:br.test.ControladorInformacoesVeiculoFunctionalTest@36ee336f]" name="testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao" duration-ms="9869" started-at="2014-11-26T11:12:47Z" finished-at="2014-11-26T11:12:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva -->
-        <test-method status="PASS" signature="testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva()[pri:0, instance:br.test.ControladorInformacoesReservaFunctionalTest@3b5fd4a3]" name="testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva" duration-ms="3476" started-at="2014-11-26T10:23:07Z" finished-at="2014-11-26T10:23:10Z">
+        </test-method> <!-- testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao -->
+        <test-method status="PASS" signature="testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao()[pri:0, instance:br.test.ControladorInformacoesVeiculoFunctionalTest@36ee336f]" name="testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao" duration-ms="5019" started-at="2014-11-26T11:12:57Z" finished-at="2014-11-26T11:13:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva -->
-      </class> <!-- br.test.ControladorInformacoesReservaFunctionalTest -->
+        </test-method> <!-- testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao -->
+      </class> <!-- br.test.ControladorInformacoesVeiculoFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

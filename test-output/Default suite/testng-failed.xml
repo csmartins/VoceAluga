@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="br.test.ControladorReservaVeiculoPorModeloFunctionalTest">
+      <class name="br.test.ControladorInformacoesVeiculoFunctionalTest">
         <methods>
-          <include name="testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteNaoEstaNaListaNegra_DeveValidarAReserva"/>
+          <include name="testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao"/>
         </methods>
-      </class> <!-- br.test.ControladorReservaVeiculoPorModeloFunctionalTest -->
+      </class> <!-- br.test.ControladorInformacoesVeiculoFunctionalTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

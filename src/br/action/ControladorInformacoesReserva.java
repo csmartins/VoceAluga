@@ -101,8 +101,8 @@ public class ControladorInformacoesReserva
 		ReservaDAO reservaDAO = new ReservaDAO();
 		reservaDAO.removerReserva(reserva);
 		
-		reserva.getCarro().setDisponivel("true");
-		CarroDAO carroDAO = new CarroDAO();
-		carroDAO.disponibilizarCarro(reserva.getCarro());
+		//reserva.getCarro().setDisponivel("true");
+		//CarroDAO carroDAO = new CarroDAO();
+		//carroDAO.disponibilizarCarro(reserva.getCarro());
 	}
 }

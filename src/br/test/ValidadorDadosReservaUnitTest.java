@@ -1,12 +1,12 @@
 package br.test;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import br.action.ValidadorDadosReservaVeiculo;
+import br.utils.Utils;
 
 public class ValidadorDadosReservaUnitTest
 {
@@ -80,12 +80,8 @@ public class ValidadorDadosReservaUnitTest
 	public void testValidarDataFim_DataFimAntesDaDataInicio_DeveRetornarFalse()
 	{
 		Date dataFim = new Date();
-
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(dataFim);
-		calendar.add(Calendar.DATE, -1);
 		
-		dataFim = calendar.getTime();
+		dataFim = Utils.criarDataNoFuturo(-1);
 		
 		Assert.assertFalse(validadorDadosReservaVeiculo.validarDataFimDepoisDataInicio(new Date(), dataFim));
 	}
@@ -95,13 +91,9 @@ public class ValidadorDadosReservaUnitTest
 	{
 		Date dataFim = new Date();
 
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(dataFim);
-		calendar.add(Calendar.DATE, 1);
-		
-		dataFim = calendar.getTime();
+		dataFim = Utils.criarDataNoFuturo(1);
 		
 		Assert.assertTrue(validadorDadosReservaVeiculo.validarDataFimDepoisDataInicio(new Date(), dataFim));
 	}
-	
+
 }

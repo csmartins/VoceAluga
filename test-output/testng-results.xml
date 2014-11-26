@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7902" started-at="2014-11-26T11:20:21Z" finished-at="2014-11-26T11:20:29Z">
+  <suite name="Default suite" duration-ms="11084" started-at="2014-11-26T12:22:59Z" finished-at="2014-11-26T12:23:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7902" started-at="2014-11-26T11:20:21Z" finished-at="2014-11-26T11:20:29Z">
-      <class name="br.test.ControladorConsultaReservaFunctionalTest">
-        <test-method status="PASS" signature="testControladorConsultaReserva_FiltrarReservas_CPFNaoNulo_DeveTrazerTodasAsReservasDoCliente()[pri:0, instance:br.test.ControladorConsultaReservaFunctionalTest@6587f194]" name="testControladorConsultaReserva_FiltrarReservas_CPFNaoNulo_DeveTrazerTodasAsReservasDoCliente" duration-ms="6286" started-at="2014-11-26T09:20:21Z" finished-at="2014-11-26T09:20:28Z">
+    <test name="Default test" duration-ms="11084" started-at="2014-11-26T12:22:59Z" finished-at="2014-11-26T12:23:10Z">
+      <class name="br.test.ControladorInformacoesReservaFunctionalTest">
+        <test-method status="PASS" signature="testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva()[pri:0, instance:br.test.ControladorInformacoesReservaFunctionalTest@3b5fd4a3]" name="testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva" duration-ms="7580" started-at="2014-11-26T10:22:59Z" finished-at="2014-11-26T10:23:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorConsultaReserva_FiltrarReservas_CPFNaoNulo_DeveTrazerTodasAsReservasDoCliente -->
-        <test-method status="PASS" signature="testControladorConsultaReserva_FiltrarReservas_CPFNulo_DeveTrazerTodasAsReservas()[pri:0, instance:br.test.ControladorConsultaReservaFunctionalTest@6587f194]" name="testControladorConsultaReserva_FiltrarReservas_CPFNulo_DeveTrazerTodasAsReservas" duration-ms="1591" started-at="2014-11-26T09:20:28Z" finished-at="2014-11-26T09:20:29Z">
+        </test-method> <!-- testControladorInformacoesReserva_Cancelar_ReservaNaoPodeSerCancelada_NaoDeveRemoverAReserva -->
+        <test-method status="PASS" signature="testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva()[pri:0, instance:br.test.ControladorInformacoesReservaFunctionalTest@3b5fd4a3]" name="testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva" duration-ms="3476" started-at="2014-11-26T10:23:07Z" finished-at="2014-11-26T10:23:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorConsultaReserva_FiltrarReservas_CPFNulo_DeveTrazerTodasAsReservas -->
-      </class> <!-- br.test.ControladorConsultaReservaFunctionalTest -->
+        </test-method> <!-- testControladorInformacoesReserva_Cancelar_ReservaPodeSerCancelada_DeveRemoverAReserva -->
+      </class> <!-- br.test.ControladorInformacoesReservaFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

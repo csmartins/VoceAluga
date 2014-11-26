@@ -23,6 +23,7 @@ public class ControladorReservaVeiculoPorModelo
 	
 	private Pessoa cliente;
 	private Carro veiculo;
+	private Reserva reserva;
 	
 	private String marca;
 	private String modelo;
@@ -173,7 +174,7 @@ public class ControladorReservaVeiculoPorModelo
 
 	private void criarReserva(Date dataInicio, Date dataFim)
 	{
-		Reserva reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
+		reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
 		
 		reservaDAO.persistirReserva(reserva);
 		
@@ -249,5 +250,15 @@ public class ControladorReservaVeiculoPorModelo
 	{
 		mensagensReserva.add(mensagem);
 		reservaValida = false;
+	}
+
+	public Reserva getReserva()
+	{
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva)
+	{
+		this.reserva = reserva;
 	}
 }

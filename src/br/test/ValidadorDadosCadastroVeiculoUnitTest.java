@@ -1,5 +1,8 @@
 package br.test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -61,6 +64,29 @@ public class ValidadorDadosCadastroVeiculoUnitTest
 	@Test
 	public void testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataNoFuturo_DeveRetornarFalse()
 	{
+		Date ultimaManutencao = new Date();
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(ultimaManutencao);
+		calendar.add(Calendar.DATE, 1);
+		
+		ultimaManutencao = calendar.getTime();
+		
+		Assert.assertFalse(validadorDadosCadastroVeiculo.validarUltimaManutencao(ultimaManutencao));
+	}
+	
+	@Test
+	public void testValidadorDadosCadastroVeiculo_ValidarDataUltimaManutencao_DataValida_DeveRetornarTrue()
+	{
+		Date ultimaManutencao = new Date();
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(ultimaManutencao);
+		calendar.add(Calendar.DATE, -1);
+		
+		ultimaManutencao = calendar.getTime();
+		
+		Assert.assertTrue(validadorDadosCadastroVeiculo.validarUltimaManutencao(ultimaManutencao));
 	}
 	
 }

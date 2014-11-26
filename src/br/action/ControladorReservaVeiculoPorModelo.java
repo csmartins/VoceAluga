@@ -61,7 +61,6 @@ public class ControladorReservaVeiculoPorModelo
 		{
 			invalidarReserva("\nDigite o modelo do veículo a ser reservado");
 		}
-		
 	}
 
 	public void validarMarca(String marca)
@@ -70,7 +69,6 @@ public class ControladorReservaVeiculoPorModelo
 		{
 			invalidarReserva("\nDigite a marca do veículo a ser reservado");
 		}
-		
 	}
 	
 	public void validarMarcaEModelo(String marca, String modelo)
@@ -171,12 +169,10 @@ public class ControladorReservaVeiculoPorModelo
 		popularVeiculo(marca, modelo);
 			
 		criarReserva(dataInicio, dataFim);
-		
 	}
 
 	private void criarReserva(Date dataInicio, Date dataFim)
 	{
-		//veiculo.setDisponivel("false");
 		Reserva reserva = new Reserva(cliente, veiculo, dataInicio, dataFim, false);
 		
 		reservaDAO.persistirReserva(reserva);

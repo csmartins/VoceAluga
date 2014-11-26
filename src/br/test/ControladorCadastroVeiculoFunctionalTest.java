@@ -1,6 +1,6 @@
 package br.test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -45,5 +45,35 @@ public class ControladorCadastroVeiculoFunctionalTest extends FunctionalTest
 		assertEquals(preco, carro.getPreco().toString());
 		
 		limparCarroAdicionadoPorPlaca(placa);
+	}
+	
+	@Test
+	public void testCadastrarVeiculo_ValidarPlaca_PlacaJaCadastrada_DeveInvalidarOCadastro()
+	{
+		controladorCadastroVeiculo = new ControladorCadastroVeiculo();
+		carroDAO = new CarroDAO();
+		
+		String placa = "TES-1234";
+		
+		controladorCadastroVeiculo.validarPlaca(placa);
+		
+		assertFalse(controladorCadastroVeiculo.isCadastroValido());
+		
+		assertEquals(controladorCadastroVeiculo.getMensagensCadastro().get(0), "\nJá existe um veículo cadastrado com esta placa.");
+	}
+	
+	@Test
+	public void testCadastrarVeiculo_ValidarPlaca_PlacaNaoCadastrada_DeveValidarOCadastro()
+	{
+		controladorCadastroVeiculo = new ControladorCadastroVeiculo();
+		carroDAO = new CarroDAO();
+		
+		String placa = "AAA-1234";
+		
+		controladorCadastroVeiculo.validarPlaca(placa);
+		
+		assertTrue(controladorCadastroVeiculo.isCadastroValido());
+		
+		assertTrue(controladorCadastroVeiculo.getMensagensCadastro().isEmpty());
 	}
 }

@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13041" started-at="2014-10-28T13:14:09Z" finished-at="2014-10-28T13:14:22Z">
+  <suite name="Default suite" duration-ms="29320" started-at="2014-11-26T01:16:33Z" finished-at="2014-11-26T01:17:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="13041" started-at="2014-10-28T13:14:09Z" finished-at="2014-10-28T13:14:22Z">
-      <class name="br.test.ControladorCadastroClienteFunctionalTest">
-        <test-method status="PASS" signature="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco" duration-ms="7502" started-at="2014-10-28T11:14:09Z" finished-at="2014-10-28T11:14:17Z">
+    <test name="Default test" duration-ms="29320" started-at="2014-11-26T01:16:33Z" finished-at="2014-11-26T01:17:02Z">
+      <class name="br.test.ControladorReservaVeiculoPorModeloFunctionalTest">
+        <test-method status="PASS" signature="testControladorReservaVeiculoPorModelo_Cadastrar_VeiculoDeveEstarDisponivelDepoisDeEfetuarAReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculoPorModelo_Cadastrar_VeiculoDeveEstarDisponivelDepoisDeEfetuarAReserva" duration-ms="9844" started-at="2014-11-25T23:16:33Z" finished-at="2014-11-25T23:16:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCadastrarCliente_CadastrarComSucesso_ClienteDeveEstarNoBanco -->
-        <test-method status="PASS" signature="testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle" duration-ms="1220" started-at="2014-10-28T11:14:17Z" finished-at="2014-10-28T11:14:18Z">
+        </test-method> <!-- testControladorReservaVeiculoPorModelo_Cadastrar_VeiculoDeveEstarDisponivelDepoisDeEfetuarAReserva -->
+        <test-method status="PASS" signature="testControladorReservaVeiculoPorModelo_NenhumCarroDisponivelParaMarcaEModelo_NaoDeveFazerReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculoPorModelo_NenhumCarroDisponivelParaMarcaEModelo_NaoDeveFazerReserva" duration-ms="2445" started-at="2014-11-25T23:16:43Z" finished-at="2014-11-25T23:16:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidarCPF_CPFExisteNoBanco_DeveInserirUmaMensagemNoBundle -->
-        <test-method status="PASS" signature="testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle" duration-ms="1117" started-at="2014-10-28T11:14:18Z" finished-at="2014-10-28T11:14:19Z">
+        </test-method> <!-- testControladorReservaVeiculoPorModelo_NenhumCarroDisponivelParaMarcaEModelo_NaoDeveFazerReserva -->
+        <test-method status="PASS" signature="testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm" duration-ms="2391" started-at="2014-11-25T23:16:45Z" finished-at="2014-11-25T23:16:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testValidarCPF_CPFNaoExisteNoBanco_NaoDeveInserirUmaMensagemNoBundle -->
-        <test-method status="PASS" signature="testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse" duration-ms="1356" started-at="2014-10-28T11:14:19Z" finished-at="2014-10-28T11:14:21Z">
+        </test-method> <!-- testControladorReservaVeiculoPorModelo_PopularVeiculo_MaisDeUmVeiculoDaMesmaMarcaEModelo_DeveEscolherQualquerUm -->
+        <test-method status="PASS" signature="testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteCadastrado_DeveValidarAReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteCadastrado_DeveValidarAReserva" duration-ms="1557" started-at="2014-11-25T23:16:48Z" finished-at="2014-11-25T23:16:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVerificarCPF_CPFExisteNoBanco_DeveRetornarFalse -->
-        <test-method status="PASS" signature="testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue()[pri:0, instance:br.test.ControladorCadastroClienteFunctionalTest@467f788b]" name="testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue" duration-ms="1814" started-at="2014-10-28T11:14:21Z" finished-at="2014-10-28T11:14:22Z">
+        </test-method> <!-- testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteCadastrado_DeveValidarAReserva -->
+        <test-method status="PASS" signature="testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteNaoCadastrado_DeveInvalidarAReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteNaoCadastrado_DeveInvalidarAReserva" duration-ms="1364" started-at="2014-11-25T23:16:49Z" finished-at="2014-11-25T23:16:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVerificarCPF_CPFNaoExisteNoBanco_DeveRetornarTrue -->
-      </class> <!-- br.test.ControladorCadastroClienteFunctionalTest -->
+        </test-method> <!-- testControladorReservaVeiculo_VerificarClienteCadastrado_ClienteNaoCadastrado_DeveInvalidarAReserva -->
+        <test-method status="PASS" signature="testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteEstaNaListaNegra_DeveInvalidarAReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteEstaNaListaNegra_DeveInvalidarAReserva" duration-ms="1624" started-at="2014-11-25T23:16:50Z" finished-at="2014-11-25T23:16:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteEstaNaListaNegra_DeveInvalidarAReserva -->
+        <test-method status="PASS" signature="testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteNaoEstaNaListaNegra_DeveValidarAReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteNaoEstaNaListaNegra_DeveValidarAReserva" duration-ms="1874" started-at="2014-11-25T23:16:52Z" finished-at="2014-11-25T23:16:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testControladorReservaVeiculo_VerificarClienteListaNegra_ClienteNaoEstaNaListaNegra_DeveValidarAReserva -->
+        <test-method status="PASS" signature="testValidarCPF_CPFNaoInserido_DeveInvalidarReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testValidarCPF_CPFNaoInserido_DeveInvalidarReserva" duration-ms="2775" started-at="2014-11-25T23:16:54Z" finished-at="2014-11-25T23:16:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarCPF_CPFNaoInserido_DeveInvalidarReserva -->
+        <test-method status="PASS" signature="testValidarMarca_MarcaNaoInserida_DeveInvalidarReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testValidarMarca_MarcaNaoInserida_DeveInvalidarReserva" duration-ms="2300" started-at="2014-11-25T23:16:57Z" finished-at="2014-11-25T23:16:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarMarca_MarcaNaoInserida_DeveInvalidarReserva -->
+        <test-method status="PASS" signature="testValidarModelo_ModeloNaoInserido_DeveInvalidarReserva()[pri:0, instance:br.test.ControladorReservaVeiculoPorModeloFunctionalTest@1cda2253]" name="testValidarModelo_ModeloNaoInserido_DeveInvalidarReserva" duration-ms="2785" started-at="2014-11-25T23:16:59Z" finished-at="2014-11-25T23:17:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarModelo_ModeloNaoInserido_DeveInvalidarReserva -->
+      </class> <!-- br.test.ControladorReservaVeiculoPorModeloFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

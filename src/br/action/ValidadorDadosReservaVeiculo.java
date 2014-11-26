@@ -40,16 +40,6 @@ public class ValidadorDadosReservaVeiculo
 			return true;
 		
 		else
-			try
-			{
-				if(dataFim.before(new Date()))
-					return false;
-			}
-			catch (NullPointerException e) 
-			{
-				return false;
-			}
-			
 			return false;
 	}
 	
@@ -59,16 +49,6 @@ public class ValidadorDadosReservaVeiculo
 			return true;
 		
 		else
-			try
-			{
-				if(dataInicio.before(new Date()))
-					return false;
-			}
-			catch (NullPointerException e) 
-			{
-				return false;
-			}
-			
 			return false;
 	}
 	

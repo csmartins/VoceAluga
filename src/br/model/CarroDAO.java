@@ -34,7 +34,7 @@ public class CarroDAO extends AbstractDAO
 		
 		return carro;
 	}
-
+	
 	public void apagarCarroAdicionadoNoTestePorPlaca(String placa)
 	{
 		EntityTransaction transaction = entityManager.getTransaction();

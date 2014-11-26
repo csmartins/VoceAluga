@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.NoResultException;
+
 import br.model.Carro;
 import br.model.CarroDAO;
 
@@ -38,7 +40,7 @@ public class ControladorCadastroVeiculo
 
 	public void validarMarca(String marca)
 	{
-		if (!validadorDadosCadastroVeiculo.validarModelo(marca))
+		if (!validadorDadosCadastroVeiculo.validarMarca(marca))
 		{
 			mensagensCadastro.add("\nDigite a marca do carro");
 
@@ -48,11 +50,33 @@ public class ControladorCadastroVeiculo
 
 	public void validarPlaca(String placa)
 	{
-		if (!validadorDadosCadastroVeiculo.validarModelo(placa))
+		if (!validadorDadosCadastroVeiculo.validarPlaca(placa))
 		{
 			mensagensCadastro.add("\nDigite a placa do carro");
 
 			cadastroValido = false;
+		}
+		
+		if(isPlacaExistenteNoBanco(placa))
+		{
+			mensagensCadastro.add("\nJá existe um veículo cadastrado com esta placa.");
+
+			cadastroValido = false;
+
+		}
+	}
+
+	private boolean isPlacaExistenteNoBanco(String placa)
+	{
+		try
+		{
+			carroDAO.recuperarCarroPorPlaca(placa);
+			
+			return true;
+		}
+		catch(NoResultException e)
+		{
+			return false;
 		}
 	}
 
@@ -121,7 +145,4 @@ public class ControladorCadastroVeiculo
 	{
 		mensagensCadastro.clear();
 	}
-
-	
-
 }

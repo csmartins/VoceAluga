@@ -77,13 +77,11 @@ public class ReservaDAO extends AbstractDAO
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		
-		String query = "delete from Reserva"
+		String query = "delete from Reserva "
 							+ "where carro_oid = "
-								+ "(select c.carro_oid from Carro c "
-									+ "where c.modelo = :modelo and c.marca = :marca)"
+								+ "(select carro_oid from Carro where modelo = :modelo and marca = :marca) "
 							+ "and pessoa_oid = "
-								+ "(select p.pessoa_oid from Pessoa p "
-									+ "where p.cpf = :cpf)";
+								+ "(select pessoa_oid from Pessoa where cpf = :cpf)";
 		
 		entityManager.createNativeQuery(query, Reserva.class).setParameter("modelo", modelo)
 															 .setParameter("marca", marca)

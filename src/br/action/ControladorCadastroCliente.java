@@ -116,7 +116,6 @@ public class ControladorCadastroCliente
 		
 		if(listaPessoas.isEmpty())
 			return true;
-		
 		else
 			return false;
 	}

@@ -62,7 +62,7 @@ public class ControladorConsultaReserva
 		}
 	}
 	
-	private String formatarReserva(Reserva r)
+	public String formatarReserva(Reserva r)
 	{
 		StringBuffer buf = new StringBuffer();
 		
@@ -94,5 +94,10 @@ public class ControladorConsultaReserva
 	public Reserva getReserva(int index)
 	{
 		return reservas.get(index);
+	}
+	
+	public ArrayList<Reserva> getReservas()
+	{
+		return reservas;
 	}
 }

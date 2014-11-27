@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="br.test.ControladorInformacoesClienteFunctionalTest">
+      <class name="br.test.ControladorPagamentoFunctionalTest">
         <methods>
-          <include name="testControladorInformacoesCliente_AdicionarListaNegra_ClienteDeveAparecerNaListaNegra"/>
+          <include name="testControladorPagamento_VenderCarro_VeiculoIndisponivel_DeveSetarVendidoParaTrue"/>
+          <include name="testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse"/>
         </methods>
-      </class> <!-- br.test.ControladorInformacoesClienteFunctionalTest -->
+      </class> <!-- br.test.ControladorPagamentoFunctionalTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -162,11 +162,19 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				controladorPagamento.venderCarro(controladorInformacoesVeiculo.getVeiculo());
-				
-				JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.");
-
-				dispose();
+				try
+				{
+					controladorPagamento.venderCarro(controladorInformacoesVeiculo.getVeiculo());
+					
+					JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.");
+					
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
 			}
 		});
 	}

@@ -52,7 +52,7 @@ public class ControladorConsultaCliente
 		}
 	}
 	
-	private String formatarInformacoesCliente(Pessoa p)
+	public String formatarInformacoesCliente(Pessoa p)
 	{
 		StringBuffer buf = new StringBuffer();
 		
@@ -75,5 +75,15 @@ public class ControladorConsultaCliente
 	public Pessoa getCliente(int index)
 	{
 		return pessoas.get(index);
+	}
+
+	public ArrayList<Pessoa> getPessoas()
+	{
+		return pessoas;
+	}
+
+	public void setPessoas(ArrayList<Pessoa> pessoas)
+	{
+		this.pessoas = pessoas;
 	}
 }

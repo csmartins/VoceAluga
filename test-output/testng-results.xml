@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14932" started-at="2014-11-26T13:12:47Z" finished-at="2014-11-26T13:13:02Z">
+  <suite name="Default suite" duration-ms="7053" started-at="2014-11-27T10:36:57Z" finished-at="2014-11-27T10:37:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14932" started-at="2014-11-26T13:12:47Z" finished-at="2014-11-26T13:13:02Z">
-      <class name="br.test.ControladorInformacoesVeiculoFunctionalTest">
-        <test-method status="PASS" signature="testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao()[pri:0, instance:br.test.ControladorInformacoesVeiculoFunctionalTest@36ee336f]" name="testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao" duration-ms="9869" started-at="2014-11-26T11:12:47Z" finished-at="2014-11-26T11:12:57Z">
+    <test name="Default test" duration-ms="7053" started-at="2014-11-27T10:36:57Z" finished-at="2014-11-27T10:37:04Z">
+      <class name="br.test.ControladorConsultaClienteFunctionalTest">
+        <test-method status="PASS" signature="testControladorConsultaCliente_FiltrarClientes_CPFNaoNulo()[pri:0, instance:br.test.ControladorConsultaClienteFunctionalTest@20c8e08f]" name="testControladorConsultaCliente_FiltrarClientes_CPFNaoNulo" duration-ms="5622" started-at="2014-11-27T08:36:57Z" finished-at="2014-11-27T08:37:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorInformacoesVeiculo_EnviarManutencao_DeveEnviarOVeiculoParaManutencao -->
-        <test-method status="PASS" signature="testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao()[pri:0, instance:br.test.ControladorInformacoesVeiculoFunctionalTest@36ee336f]" name="testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao" duration-ms="5019" started-at="2014-11-26T11:12:57Z" finished-at="2014-11-26T11:13:02Z">
+        </test-method> <!-- testControladorConsultaCliente_FiltrarClientes_CPFNaoNulo -->
+        <test-method status="PASS" signature="testControladorConsultaCliente_FiltrarClientes_CPFNulo()[pri:0, instance:br.test.ControladorConsultaClienteFunctionalTest@20c8e08f]" name="testControladorConsultaCliente_FiltrarClientes_CPFNulo" duration-ms="1407" started-at="2014-11-27T08:37:03Z" finished-at="2014-11-27T08:37:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorInformacoesVeiculo_RemoverManutencao_DeveRemoverOVeiculoDaManutencao -->
-      </class> <!-- br.test.ControladorInformacoesVeiculoFunctionalTest -->
+        </test-method> <!-- testControladorConsultaCliente_FiltrarClientes_CPFNulo -->
+      </class> <!-- br.test.ControladorConsultaClienteFunctionalTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

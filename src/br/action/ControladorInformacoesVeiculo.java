@@ -131,5 +131,15 @@ public class ControladorInformacoesVeiculo {
 		carroDAO.atualizarVeiculo(veiculo);
 	}
 
+	public Carro getVeiculo()
+	{
+		return veiculo;
+	}
+
+	public void setVeiculo(Carro veiculo)
+	{
+		this.veiculo = veiculo;
+	}
+
 	
 }

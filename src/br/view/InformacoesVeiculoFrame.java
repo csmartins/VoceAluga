@@ -15,6 +15,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.action.ControladorConsultaVeiculo;
 import br.action.ControladorInformacoesVeiculo;
+import br.action.ControladorPagamento;
 import br.model.Carro;
 
 public class InformacoesVeiculoFrame extends JInternalFrame 
@@ -22,6 +23,8 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 	private static final long serialVersionUID = 945196386534467283L;
 	
 	private ControladorInformacoesVeiculo controladorInformacoesVeiculo;
+	
+	private ControladorPagamento controladorPagamento;
 
 	/**
 	 * Create the frame.
@@ -72,6 +75,10 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 		
 		JLabel lblVendido = new JLabel("Vendido: " + controladorInformacoesVeiculo.isVeiculoVendido());
 		
+		JButton btnVender = new JButton("Vender");
+		criarBotaoVender(btnVender);
+		btnVender.setVisible((controladorInformacoesVeiculo.isVeiculoVendido().equals("Sim") ? false : true));
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -99,12 +106,15 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 							.addComponent(lblTxtDisponivel)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblDisponivel))
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblPreco)
-								.addGap(42)
-								.addComponent(lblVendido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addComponent(lblNome, Alignment.LEADING)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblPreco)
+									.addGap(42)
+									.addComponent(lblVendido, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(lblNome, Alignment.LEADING))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnVender)))
 					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -129,7 +139,8 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPreco)
-						.addComponent(lblVendido))
+						.addComponent(lblVendido)
+						.addComponent(btnVender))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTxtDisponivel)
@@ -143,6 +154,21 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 		);
 		getContentPane().setLayout(groupLayout);
 
+	}
+
+	private void criarBotaoVender(JButton btnVender)
+	{
+		btnVender.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				controladorPagamento.venderCarro(controladorInformacoesVeiculo.getVeiculo());
+				
+				JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.");
+
+				dispose();
+			}
+		});
 	}
 
 	private void criarBotaoRemoverManutencao(JButton btnRemoverDaManuteno)

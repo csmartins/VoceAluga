@@ -74,5 +74,5 @@ public class PessoaDAO extends AbstractDAO
 		entityManager.createNativeQuery(query, ListaNegra.class).setParameter("pessoa_oid", pessoaOid).executeUpdate();
 		
 		transaction.commit();
-	}	
+	}
 }

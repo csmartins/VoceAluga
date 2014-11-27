@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="br.test.ControladorConsultaClienteUnitTest">
+      <class name="br.test.ControladorInformacoesClienteFunctionalTest">
         <methods>
-          <include name="testControladorConsultaCliente_FormatarInformacoesCliente_DeveFormatarCPFENome"/>
+          <include name="testControladorInformacoesCliente_AdicionarListaNegra_ClienteDeveAparecerNaListaNegra"/>
         </methods>
-      </class> <!-- br.test.ControladorConsultaClienteUnitTest -->
+      </class> <!-- br.test.ControladorInformacoesClienteFunctionalTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

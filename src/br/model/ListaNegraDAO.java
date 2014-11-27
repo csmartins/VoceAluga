@@ -1,5 +1,7 @@
 package br.model;
 
+import java.util.List;
+
 
 public class ListaNegraDAO extends AbstractDAO
 {
@@ -33,4 +35,12 @@ public class ListaNegraDAO extends AbstractDAO
 		
 	}
 
+	public boolean isPessoaNaListaNegra(Pessoa cliente)
+	{
+		String query = "select * from ListaNegra where pessoa_oid = :pessoa";
+		
+		List<ListaNegra> listaNegra = entityManager.createNativeQuery(query, ListaNegra.class).setParameter("pessoa", cliente.getPessoaOid()).getResultList();
+		
+		return !listaNegra.isEmpty();
+	}
 }

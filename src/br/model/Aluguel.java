@@ -45,6 +45,17 @@ public class Aluguel implements java.io.Serializable
 		this.pago = pago;
 	}
 
+	public Aluguel(Pessoa pessoa, Carro carro,
+			Reserva reserva, Date dataInicio, Date dataFim, boolean pago)
+	{
+		this.pessoa = pessoa;
+		this.carro = carro;
+		this.reserva = reserva;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.pago = pago;
+	}	
+	
 	@Id
 	@Column(name = "aluguel_oid", unique = true, nullable = false, length = 45)
 	public String getAluguelOid()

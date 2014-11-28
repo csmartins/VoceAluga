@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 16/09/2014 16:15:31 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="br.model.Carro" table="Carro" catalog="VoceAluga">
         <id name="carroOid" type="string">
@@ -27,10 +27,13 @@
             <column name="disponivel" length="45" not-null="true" />
         </property>
         <property name="preco" type="big_decimal">
-            <column name="preco" precision="6" />
+            <column name="preco" precision="50" />
         </property>
         <property name="diaria" type="big_decimal">
-            <column name="diaria" precision="6" />
+            <column name="diaria" precision="50" />
+        </property>
+        <property name="vendido" type="string">
+            <column name="vendido" length="45" not-null="true" />
         </property>
         <set name="reservas" table="Reserva" inverse="true" lazy="true" fetch="select">
             <key>

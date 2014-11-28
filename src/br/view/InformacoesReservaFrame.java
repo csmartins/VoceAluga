@@ -92,11 +92,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
 		
 		JButton btnAlugar = new JButton("Alugar");
-		btnAlugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
+		criarEventoBotaoAlugar(btnAlugar);
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);
 		gl_pnlInfoReserva.setHorizontalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
@@ -217,6 +213,18 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		);
 		pnlInfoCliente.setLayout(gl_pnlInfoCliente);
 		getContentPane().setLayout(groupLayout);
+	}
+
+	private void criarEventoBotaoAlugar(JButton btnAlugar) {
+		btnAlugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorInformacoesReserva.alugar();
+				
+				Utils.exibirMensagem("Carro alugado com sucesso");
+				frameConsultaReserva.atualizarListaReservas();
+				dispose();
+			}
+		});
 	}
 
 	private void criarBotaoCancelar(JButton btnCancelar) {

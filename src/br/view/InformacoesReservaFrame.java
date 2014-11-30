@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.BevelBorder;
 
+import br.action.ControladorAluguelVeiculoPorReserva;
 import br.action.ControladorInformacoesReserva;
 import br.model.Reserva;
 import br.utils.Utils;
@@ -19,7 +20,8 @@ import java.awt.event.ActionEvent;
 public class InformacoesReservaFrame extends JInternalFrame {
 	private ControladorInformacoesReserva controladorInformacoesReserva;
 	private ConsultaReservaFrame frameConsultaReserva;
-
+	private ControladorAluguelVeiculoPorReserva controladorAluguelVeiculoPorReserva;
+	
 	/**
 	 * Create the frame.
 	 */
@@ -32,6 +34,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		setTitle("Informações da Reserva");
 
 		controladorInformacoesReserva = new ControladorInformacoesReserva(reserva);
+		controladorAluguelVeiculoPorReserva = new ControladorAluguelVeiculoPorReserva(reserva);
 		
 		JPanel pnlInfoCliente = new JPanel();
 		pnlInfoCliente.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -218,7 +221,7 @@ public class InformacoesReservaFrame extends JInternalFrame {
 	private void criarEventoBotaoAlugar(JButton btnAlugar) {
 		btnAlugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorInformacoesReserva.alugar();
+				controladorAluguelVeiculoPorReserva.alugar();
 				
 				Utils.exibirMensagem("Carro alugado com sucesso");
 				frameConsultaReserva.atualizarListaReservas();

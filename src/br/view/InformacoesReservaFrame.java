@@ -96,6 +96,8 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		
 		JButton btnAlugar = new JButton("Alugar");
 		criarEventoBotaoAlugar(btnAlugar);
+		btnAlugar.setVisible(controladorAluguelVeiculoPorReserva.reservaPodeSerAlugada());
+		
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);
 		gl_pnlInfoReserva.setHorizontalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
@@ -221,6 +223,13 @@ public class InformacoesReservaFrame extends JInternalFrame {
 	private void criarEventoBotaoAlugar(JButton btnAlugar) {
 		btnAlugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(controladorAluguelVeiculoPorReserva.isPessoaNaListaNegra())
+				{
+					Utils.exibirMensagem("Aluguel não pode ser realizado. Cliente se encontra na Lista Negra.");
+					dispose();
+					return;
+				}
+				
 				controladorAluguelVeiculoPorReserva.alugar();
 				
 				Utils.exibirMensagem("Carro alugado com sucesso");

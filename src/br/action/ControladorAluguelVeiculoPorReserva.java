@@ -1,11 +1,10 @@
 package br.action;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.model.Aluguel;
 import br.model.AluguelDAO;
-import br.model.CarroDAO;
+import br.model.ListaNegraDAO;
 import br.model.Reserva;
 
 public class ControladorAluguelVeiculoPorReserva {
@@ -20,7 +19,7 @@ public class ControladorAluguelVeiculoPorReserva {
 	
 	public boolean reservaPodeSerAlugada()
 	{
-		if (reserva.getDataFim().before(new Date()) && reserva.getCarro().getDisponivel().equals(true) )
+		if (reserva.getDataFim().before(new Date()) || reserva.getCarro().getDisponivel().equals(true) )
 		{
 			return false;
 		}
@@ -42,5 +41,19 @@ public class ControladorAluguelVeiculoPorReserva {
 		aluguel = new Aluguel(reserva.getPessoa(), reserva.getCarro(), reserva, reserva.getDataInicio(), reserva.getDataFim(), reserva.isPagoAntecipado());
 		
 		aluguelDAO.persistirAluguel(aluguel);
+	}
+	
+	public boolean isPessoaNaListaNegra()
+	{
+		ListaNegraDAO listaNegraDAO = new ListaNegraDAO();
+		
+		if(listaNegraDAO.isPessoaNaListaNegra(reserva.getPessoa()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

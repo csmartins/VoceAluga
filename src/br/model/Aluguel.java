@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
+// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -33,18 +33,6 @@ public class Aluguel implements java.io.Serializable
 	{
 	}
 
-	public Aluguel(String aluguelOid, Pessoa pessoa, Carro carro,
-			Reserva reserva, Date dataInicio, Date dataFim, boolean pago)
-	{
-		this.aluguelOid = aluguelOid;
-		this.pessoa = pessoa;
-		this.carro = carro;
-		this.reserva = reserva;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.pago = pago;
-	}
-
 	public Aluguel(Pessoa pessoa, Carro carro,
 			Reserva reserva, Date dataInicio, Date dataFim, boolean pago)
 	{
@@ -54,8 +42,8 @@ public class Aluguel implements java.io.Serializable
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.pago = pago;
-	}	
-	
+	}
+
 	@Id
 	@Column(name = "aluguel_oid", unique = true, nullable = false, length = 45)
 	public String getAluguelOid()

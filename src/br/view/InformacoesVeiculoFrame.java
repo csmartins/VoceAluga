@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,13 +25,19 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 	
 	private ControladorInformacoesVeiculo controladorInformacoesVeiculo;
 	
-	private ControladorPagamento controladorPagamento;
+	private JDesktopPane desktopPane;
+	
+	private Carro veiculo;
 
 	/**
 	 * Create the frame.
 	 */
-	public InformacoesVeiculoFrame(Carro veiculo, ControladorConsultaVeiculo controladorConsultaVeiculo) 
+	public InformacoesVeiculoFrame(Carro veiculo, ControladorConsultaVeiculo controladorConsultaVeiculo, JDesktopPane desktopPane) 
 	{
+		this.desktopPane = desktopPane;
+		
+		this.veiculo = veiculo;
+		
 		controladorInformacoesVeiculo = new ControladorInformacoesVeiculo(veiculo, controladorConsultaVeiculo);
 
 		setBorder(null);
@@ -164,9 +171,10 @@ public class InformacoesVeiculoFrame extends JInternalFrame
 			{
 				try
 				{
-					controladorPagamento.venderCarro(controladorInformacoesVeiculo.getVeiculo());
-					
-					JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.");
+					PagamentoFrame pagamentoFrame = new PagamentoFrame(veiculo);
+					desktopPane.add(pagamentoFrame);
+					pagamentoFrame.show();
+					pagamentoFrame.setLocation(0, 0);
 					
 					dispose();
 				}

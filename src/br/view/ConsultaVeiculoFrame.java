@@ -173,7 +173,7 @@ public class ConsultaVeiculoFrame extends JInternalFrame {
 					Carro veiculo = controladorConsultaVeiculo
 							.getVeiculo(veiculoSelecionado);
 
-					InformacoesVeiculoFrame informacoesVeiculoFrame = new InformacoesVeiculoFrame(veiculo, controladorConsultaVeiculo);
+					InformacoesVeiculoFrame informacoesVeiculoFrame = new InformacoesVeiculoFrame(veiculo, controladorConsultaVeiculo, desktopPane);
 					desktopPane.add(informacoesVeiculoFrame);
 					informacoesVeiculoFrame.show();
 					informacoesVeiculoFrame.setLocation(0, 0);

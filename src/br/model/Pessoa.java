@@ -1,10 +1,9 @@
 package br.model;
 
-// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
+// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,27 +44,9 @@ public class Pessoa implements java.io.Serializable
 		this.rg = rg;
 	}
 
-	public Pessoa(String pessoaOid, String nome, String cpf, String rg,
+	public Pessoa(String nome, String cpf, String rg,
 			String carteira, Character categoriaCarteira, String telefone,
-			String email, Set aluguels, Set reservas, Set filials,
-			Set listaNegras)
-	{
-		this.pessoaOid = pessoaOid;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.carteira = carteira;
-		this.categoriaCarteira = categoriaCarteira;
-		this.telefone = telefone;
-		this.email = email;
-		this.aluguels = aluguels;
-		this.reservas = reservas;
-		this.filials = filials;
-		this.listaNegras = listaNegras;
-	}
-
-	public Pessoa(String nome, String cpf, String rg, String carteira,
-			char categoriaCarteira, String telefone, String email)
+			String email)
 	{
 		this.nome = nome;
 		this.cpf = cpf;

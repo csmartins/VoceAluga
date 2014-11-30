@@ -5,8 +5,7 @@
     <classes>
       <class name="br.test.ControladorPagamentoFunctionalTest">
         <methods>
-          <include name="testControladorPagamento_VenderCarro_VeiculoIndisponivel_DeveSetarVendidoParaTrue"/>
-          <include name="testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse"/>
+          <include name="testControladorPagamento_VenderCarro_FormaPagamentoCreditoEm6Vezes_DeveSetarFormaDePagamentoParaDinheiro"/>
         </methods>
       </class> <!-- br.test.ControladorPagamentoFunctionalTest -->
     </classes>

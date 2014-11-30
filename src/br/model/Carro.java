@@ -1,12 +1,11 @@
 package br.model;
 
-// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
+// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,6 +33,7 @@ public class Carro implements java.io.Serializable
 	private BigDecimal preco;
 	private BigDecimal diaria;
 	private String vendido;
+	private String formaPagamento;
 	private Set reservas = new HashSet(0);
 	private Set manutencaos = new HashSet(0);
 	private Set aluguels = new HashSet(0);
@@ -54,29 +54,10 @@ public class Carro implements java.io.Serializable
 		this.vendido = vendido;
 	}
 
-	public Carro(String carroOid, String modelo, String placa, int ano,
-			Date ultimaManutencao, String marca, String disponivel,
-			BigDecimal preco, BigDecimal diaria, String vendido, Set reservas,
-			Set manutencaos, Set aluguels)
-	{
-		this.carroOid = carroOid;
-		this.modelo = modelo;
-		this.placa = placa;
-		this.ano = ano;
-		this.ultimaManutencao = ultimaManutencao;
-		this.marca = marca;
-		this.disponivel = disponivel;
-		this.preco = preco;
-		this.diaria = diaria;
-		this.vendido = vendido;
-		this.reservas = reservas;
-		this.manutencaos = manutencaos;
-		this.aluguels = aluguels;
-	}
-
 	public Carro(String modelo, String placa, int ano,
 			Date ultimaManutencao, String marca, String disponivel,
-			BigDecimal preco, BigDecimal diaria, String vendido)
+			BigDecimal preco, BigDecimal diaria, String vendido,
+			String formaPagamento)
 	{
 		this.modelo = modelo;
 		this.placa = placa;
@@ -87,6 +68,7 @@ public class Carro implements java.io.Serializable
 		this.preco = preco;
 		this.diaria = diaria;
 		this.vendido = vendido;
+		this.formaPagamento = formaPagamento;
 	}
 
 	@Id
@@ -199,6 +181,17 @@ public class Carro implements java.io.Serializable
 	public void setVendido(String vendido)
 	{
 		this.vendido = vendido;
+	}
+
+	@Column(name = "formaPagamento", length = 45)
+	public String getFormaPagamento()
+	{
+		return this.formaPagamento;
+	}
+
+	public void setFormaPagamento(String formaPagamento)
+	{
+		this.formaPagamento = formaPagamento;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "carro")

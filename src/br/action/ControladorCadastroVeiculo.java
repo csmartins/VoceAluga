@@ -125,8 +125,10 @@ public class ControladorCadastroVeiculo
 	{
 		String vendido = "false";
 		
+		String formaPagamento = "";
+		
 		Carro veiculo = new Carro(modelo, placa, ano, ultimaManutencao, marca,
-				disponivel.toString(), new BigDecimal(preco), new BigDecimal(diaria), vendido);
+				disponivel.toString(), new BigDecimal(preco), new BigDecimal(diaria), vendido, formaPagamento);
 
 		carroDAO.persistirVeiculo(veiculo);
 	}

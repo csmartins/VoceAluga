@@ -25,7 +25,7 @@ public class ControladorPagamentoFunctionalTest extends FunctionalTest
 		Assert.assertEquals(veiculo.getDisponivel(), "true");
 		Assert.assertEquals(veiculo.getVendido(), "false");
 		
-		controladorPagamento.venderCarro(veiculo);
+		controladorPagamento.venderCarro(veiculo, null);
 		
 		carroDAO = new CarroDAO();
 		
@@ -51,7 +51,7 @@ public class ControladorPagamentoFunctionalTest extends FunctionalTest
 		Assert.assertEquals(veiculo.getDisponivel(), "false");
 		Assert.assertEquals(veiculo.getVendido(), "false");
 		
-		controladorPagamento.venderCarro(veiculo);
+		controladorPagamento.venderCarro(veiculo, null);
 		
 		carroDAO = new CarroDAO();
 		
@@ -64,4 +64,78 @@ public class ControladorPagamentoFunctionalTest extends FunctionalTest
 		carroDAO.atualizarVeiculo(veiculo);
 	}
 	
+	@Test
+	public void testControladorPagamento_VenderCarro_FormaPagamentoDinheiro_DeveSetarFormaDePagamentoParaDinheiro()
+	{
+		controladorPagamento = new ControladorPagamento();
+		
+		carroDAO = new CarroDAO();
+		
+		Carro veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertNull(veiculo.getFormaPagamento());
+		
+		controladorPagamento.venderCarro(veiculo, "Dinheiro");
+		
+		carroDAO = new CarroDAO();
+		
+		veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertEquals(veiculo.getFormaPagamento(), "Dinheiro");
+		
+		veiculo.setVendido("false");
+		veiculo.setDisponivel("true");
+		veiculo.setFormaPagamento(null);
+		carroDAO.atualizarVeiculo(veiculo);
+	}
+	
+	@Test
+	public void testControladorPagamento_VenderCarro_FormaPagamentoDebito_DeveSetarFormaDePagamentoParaDinheiro()
+	{
+		controladorPagamento = new ControladorPagamento();
+		
+		carroDAO = new CarroDAO();
+		
+		Carro veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertNull(veiculo.getFormaPagamento());
+		
+		controladorPagamento.venderCarro(veiculo, "Débito À Vista");
+		
+		carroDAO = new CarroDAO();
+		
+		veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertEquals(veiculo.getFormaPagamento(), "Débito À Vista");
+		
+		veiculo.setVendido("false");
+		veiculo.setDisponivel("true");
+		veiculo.setFormaPagamento(null);
+		carroDAO.atualizarVeiculo(veiculo);
+	}
+	
+	@Test
+	public void testControladorPagamento_VenderCarro_FormaPagamentoCreditoEmXVezes_DeveSetarFormaDePagamentoParaDinheiro()
+	{
+		controladorPagamento = new ControladorPagamento();
+		
+		carroDAO = new CarroDAO();
+		
+		Carro veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertNull(veiculo.getFormaPagamento());
+		
+		controladorPagamento.venderCarroCredito(veiculo, "X");
+		
+		carroDAO = new CarroDAO();
+		
+		veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertEquals(veiculo.getFormaPagamento(), "Crédito em X vezes");
+		
+		veiculo.setVendido("false");
+		veiculo.setDisponivel("true");
+		veiculo.setFormaPagamento(null);
+		carroDAO.atualizarVeiculo(veiculo);
+	}
 }

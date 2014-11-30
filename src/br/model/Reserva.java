@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 24/11/2014 10:19:15 by Hibernate Tools 3.4.0.CR1
+// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -36,7 +36,7 @@ public class Reserva implements java.io.Serializable
 	{
 	}
 
-	public Reserva(String reservaOid, Pessoa pessoa, Carro carro,
+	public Reserva(Pessoa pessoa, Carro carro,
 			Date dataInicio, Date dataFim, boolean pagoAntecipado)
 	{
 		this.reservaOid = reservaOid;
@@ -57,16 +57,6 @@ public class Reserva implements java.io.Serializable
 		this.dataFim = dataFim;
 		this.pagoAntecipado = pagoAntecipado;
 		this.aluguels = aluguels;
-	}
-
-	public Reserva(Pessoa cliente, Carro veiculo, Date dataInicio,
-			Date dataFim, boolean pagoAntecipado)
-	{
-		this.pessoa = cliente;
-		this.carro = veiculo;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.pagoAntecipado = pagoAntecipado;
 	}
 
 	@Id

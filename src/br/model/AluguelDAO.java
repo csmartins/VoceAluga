@@ -3,6 +3,7 @@ package br.model;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 
 public class AluguelDAO extends AbstractDAO 
@@ -23,6 +24,17 @@ public class AluguelDAO extends AbstractDAO
 		entityManager.close();
 	}
 	
+	public void removerAluguel(Aluguel aluguel)
+	{
+		entityManager.getTransaction().begin();
+		
+		Aluguel a = entityManager.merge(aluguel);
+		entityManager.remove(a);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Aluguel> recuperarAluguelPorReserva(Reserva reserva)
 	{
@@ -37,6 +49,28 @@ public class AluguelDAO extends AbstractDAO
 		return aluguel;
 	}
 
+	public List<Aluguel> recuperarTodosAlugueis()
+	{
+		List<Aluguel> resultado;
+		
+		TypedQuery<Aluguel> query = entityManager.createQuery("select a from Aluguel a", Aluguel.class);
+		resultado = query.getResultList();
+		
+		return resultado;
+	}
+	
+	public List<Aluguel> recuperarAlugueisPorCpfCliente(String cpf)
+	{
+		List<Aluguel> resultado;
+		
+		String consulta = "select a from Aluguel a where a.pessoa.cpf = ";
+		
+		TypedQuery<Aluguel> query = entityManager.createQuery( consulta + cpf, Aluguel.class);
+		resultado = query.getResultList();
+		
+		return resultado;
+	}
+	
 	public void atualizarAluguel(Aluguel aluguel)
 	{
 		EntityTransaction transaction = entityManager.getTransaction();
@@ -47,5 +81,5 @@ public class AluguelDAO extends AbstractDAO
 		transaction.commit();
 		
 	}
-	
+
 }

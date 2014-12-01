@@ -1,33 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="20" passed="20">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14923" started-at="2014-11-30T16:02:14Z" finished-at="2014-11-30T16:02:28Z">
+  <suite name="Default suite" duration-ms="151" started-at="2014-12-01T02:06:34Z" finished-at="2014-12-01T02:06:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14923" started-at="2014-11-30T16:02:14Z" finished-at="2014-11-30T16:02:28Z">
-      <class name="br.test.ControladorPagamentoFunctionalTest">
-        <test-method status="PASS" signature="testControladorPagamento_VenderCarro_FormaPagamentoCreditoEmXVezes_DeveSetarFormaDePagamentoParaDinheiro()[pri:0, instance:br.test.ControladorPagamentoFunctionalTest@3b5fd4a3]" name="testControladorPagamento_VenderCarro_FormaPagamentoCreditoEmXVezes_DeveSetarFormaDePagamentoParaDinheiro" duration-ms="7155" started-at="2014-11-30T14:02:14Z" finished-at="2014-11-30T14:02:21Z">
+    <test name="Default test" duration-ms="151" started-at="2014-12-01T02:06:34Z" finished-at="2014-12-01T02:06:34Z">
+      <class name="br.test.ValidadorDadosCadastroClienteUnitTest">
+        <test-method status="PASS" signature="testValidarCPF_CPFComLetras_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCPF_CPFComLetras_DeveRetornarFalse" duration-ms="29" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorPagamento_VenderCarro_FormaPagamentoCreditoEmXVezes_DeveSetarFormaDePagamentoParaDinheiro -->
-        <test-method status="PASS" signature="testControladorPagamento_VenderCarro_FormaPagamentoDebito_DeveSetarFormaDePagamentoParaDinheiro()[pri:0, instance:br.test.ControladorPagamentoFunctionalTest@3b5fd4a3]" name="testControladorPagamento_VenderCarro_FormaPagamentoDebito_DeveSetarFormaDePagamentoParaDinheiro" duration-ms="2095" started-at="2014-11-30T14:02:21Z" finished-at="2014-11-30T14:02:23Z">
+        </test-method> <!-- testValidarCPF_CPFComLetras_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarCPF_CPFComMaisDe11Caracteres_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCPF_CPFComMaisDe11Caracteres_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorPagamento_VenderCarro_FormaPagamentoDebito_DeveSetarFormaDePagamentoParaDinheiro -->
-        <test-method status="PASS" signature="testControladorPagamento_VenderCarro_FormaPagamentoDinheiro_DeveSetarFormaDePagamentoParaDinheiro()[pri:0, instance:br.test.ControladorPagamentoFunctionalTest@3b5fd4a3]" name="testControladorPagamento_VenderCarro_FormaPagamentoDinheiro_DeveSetarFormaDePagamentoParaDinheiro" duration-ms="1975" started-at="2014-11-30T14:02:23Z" finished-at="2014-11-30T14:02:25Z">
+        </test-method> <!-- testValidarCPF_CPFComMaisDe11Caracteres_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarCPF_CPFNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCPF_CPFNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorPagamento_VenderCarro_FormaPagamentoDinheiro_DeveSetarFormaDePagamentoParaDinheiro -->
-        <test-method status="PASS" signature="testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse()[pri:0, instance:br.test.ControladorPagamentoFunctionalTest@3b5fd4a3]" name="testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse" duration-ms="1771" started-at="2014-11-30T14:02:25Z" finished-at="2014-11-30T14:02:27Z">
+        </test-method> <!-- testValidarCPF_CPFNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarCPF_CPFSemLetras_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCPF_CPFSemLetras_DeveRetornarTrue" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse -->
-        <test-method status="PASS" signature="testControladorPagamento_VenderCarro_VeiculoIndisponivel_DeveSetarVendidoParaTrue()[pri:0, instance:br.test.ControladorPagamentoFunctionalTest@3b5fd4a3]" name="testControladorPagamento_VenderCarro_VeiculoIndisponivel_DeveSetarVendidoParaTrue" duration-ms="1885" started-at="2014-11-30T14:02:27Z" finished-at="2014-11-30T14:02:28Z">
+        </test-method> <!-- testValidarCPF_CPFSemLetras_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidarCarteira_CarteiraComLetras_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCarteira_CarteiraComLetras_DeveRetornarFalse" duration-ms="2" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testControladorPagamento_VenderCarro_VeiculoIndisponivel_DeveSetarVendidoParaTrue -->
-      </class> <!-- br.test.ControladorPagamentoFunctionalTest -->
+        </test-method> <!-- testValidarCarteira_CarteiraComLetras_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarCarteira_CarteiraNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCarteira_CarteiraNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarCarteira_CarteiraNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarCarteira_CarteiraSemLetras_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarCarteira_CarteiraSemLetras_DeveRetornarTrue" duration-ms="2" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarCarteira_CarteiraSemLetras_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidarEmail_EmailCorreto_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarEmail_EmailCorreto_DeveRetornarTrue" duration-ms="19" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarEmail_EmailCorreto_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidarEmail_EmailInvalido_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarEmail_EmailInvalido_DeveRetornarFalse" duration-ms="9" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarEmail_EmailInvalido_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarNome_NomeComMaisDe3Letras_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarNome_NomeComMaisDe3Letras_DeveRetornarTrue" duration-ms="2" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarNome_NomeComMaisDe3Letras_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidarNome_NomeComMenosDe3Letras_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarNome_NomeComMenosDe3Letras_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarNome_NomeComMenosDe3Letras_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarNome_NomeNaoPodeTerNumeros_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarNome_NomeNaoPodeTerNumeros_DeveRetornarFalse" duration-ms="2" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarNome_NomeNaoPodeTerNumeros_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarNome_NomeNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarNome_NomeNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarNome_NomeNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarRG_RGComLetras_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarRG_RGComLetras_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarRG_RGComLetras_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarRG_RGNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarRG_RGNulo_DeveRetornarFalse" duration-ms="2" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarRG_RGNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarRG_RGSemLetras_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarRG_RGSemLetras_DeveRetornarTrue" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarRG_RGSemLetras_DeveRetornarTrue -->
+        <test-method status="PASS" signature="testValidarTelefone_TelefoneComLetras_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarTelefone_TelefoneComLetras_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarTelefone_TelefoneComLetras_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarTelefone_TelefoneComMaisDe8Caracteres_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarTelefone_TelefoneComMaisDe8Caracteres_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarTelefone_TelefoneComMaisDe8Caracteres_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarTelefone_TelefoneNulo_DeveRetornarFalse()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarTelefone_TelefoneNulo_DeveRetornarFalse" duration-ms="1" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarTelefone_TelefoneNulo_DeveRetornarFalse -->
+        <test-method status="PASS" signature="testValidarTelefone_TelefoneSemLetras_DeveRetornarTrue()[pri:0, instance:br.test.ValidadorDadosCadastroClienteUnitTest@4290da40]" name="testValidarTelefone_TelefoneSemLetras_DeveRetornarTrue" duration-ms="7" started-at="2014-12-01T00:06:34Z" finished-at="2014-12-01T00:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidarTelefone_TelefoneSemLetras_DeveRetornarTrue -->
+      </class> <!-- br.test.ValidadorDadosCadastroClienteUnitTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

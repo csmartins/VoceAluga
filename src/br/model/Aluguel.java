@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
+// Generated 01/12/2014 10:10:05 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -28,6 +28,7 @@ public class Aluguel implements java.io.Serializable
 	private Date dataInicio;
 	private Date dataFim;
 	private boolean pago;
+	private String formaPagamento;
 
 	public Aluguel()
 	{
@@ -42,6 +43,20 @@ public class Aluguel implements java.io.Serializable
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.pago = pago;
+	}
+
+	public Aluguel(String aluguelOid, Pessoa pessoa, Carro carro,
+			Reserva reserva, Date dataInicio, Date dataFim, boolean pago,
+			String formaPagamento)
+	{
+		this.aluguelOid = aluguelOid;
+		this.pessoa = pessoa;
+		this.carro = carro;
+		this.reserva = reserva;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.pago = pago;
+		this.formaPagamento = formaPagamento;
 	}
 
 	@Id
@@ -125,6 +140,17 @@ public class Aluguel implements java.io.Serializable
 	public void setPago(boolean pago)
 	{
 		this.pago = pago;
+	}
+
+	@Column(name = "formaPagamento", length = 45)
+	public String getFormaPagamento()
+	{
+		return this.formaPagamento;
+	}
+
+	public void setFormaPagamento(String formaPagamento)
+	{
+		this.formaPagamento = formaPagamento;
 	}
 
 }

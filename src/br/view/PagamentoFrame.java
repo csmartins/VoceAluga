@@ -143,7 +143,7 @@ public class PagamentoFrame extends JInternalFrame
 	
 	private void finalizarCompra()
 	{
-		Utils.exibirMensagem("Venda realizada com sucesso.");
+		Utils.exibirMensagem("Venda realizada com sucesso. Um email foi enviado para o cliente com o relatorio da compra e a nota fiscal.");
 		
 		dispose();
 	}

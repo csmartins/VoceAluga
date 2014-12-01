@@ -1,6 +1,6 @@
 package br.model;
 
-// Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1
+// Generated 01/12/2014 10:10:05 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -42,16 +42,17 @@ public class Carro implements java.io.Serializable
 	{
 	}
 
-	public Carro(String carroOid, String modelo, String placa, int ano,
-			String marca, String disponivel, String vendido)
+	public Carro(String modelo, String placa, int ano, Date ultimaManutencao,
+			String marca, String disponivel, String vendido, String formaPagamento)
 	{
-		this.carroOid = carroOid;
 		this.modelo = modelo;
+		this.ultimaManutencao = ultimaManutencao;
 		this.placa = placa;
 		this.ano = ano;
 		this.marca = marca;
 		this.disponivel = disponivel;
 		this.vendido = vendido;
+		this.formaPagamento = formaPagamento;
 	}
 
 	public Carro(String modelo, String placa, int ano,
@@ -59,6 +60,7 @@ public class Carro implements java.io.Serializable
 			BigDecimal preco, BigDecimal diaria, String vendido,
 			String formaPagamento)
 	{
+		this.carroOid = carroOid;
 		this.modelo = modelo;
 		this.placa = placa;
 		this.ano = ano;
@@ -69,6 +71,9 @@ public class Carro implements java.io.Serializable
 		this.diaria = diaria;
 		this.vendido = vendido;
 		this.formaPagamento = formaPagamento;
+		this.reservas = reservas;
+		this.manutencaos = manutencaos;
+		this.aluguels = aluguels;
 	}
 
 	@Id

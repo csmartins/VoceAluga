@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 30/11/2014 11:48:26 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 01/12/2014 10:10:05 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="br.model.Aluguel" table="Aluguel" catalog="VoceAluga">
         <id name="aluguelOid" type="string">
@@ -25,6 +25,9 @@
         </property>
         <property name="pago" type="boolean">
             <column name="pago" not-null="true" />
+        </property>
+        <property name="formaPagamento" type="string">
+            <column name="formaPagamento" length="45" />
         </property>
     </class>
 </hibernate-mapping>

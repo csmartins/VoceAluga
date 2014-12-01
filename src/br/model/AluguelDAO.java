@@ -2,6 +2,8 @@ package br.model;
 
 import java.util.List;
 
+import javax.persistence.EntityTransaction;
+
 
 public class AluguelDAO extends AbstractDAO 
 {
@@ -33,6 +35,17 @@ public class AluguelDAO extends AbstractDAO
 		
 		
 		return aluguel;
+	}
+
+	public void atualizarAluguel(Aluguel aluguel)
+	{
+		EntityTransaction transaction = entityManager.getTransaction();
+		transaction.begin();
+		
+		entityManager.merge(aluguel);
+		
+		transaction.commit();
+		
 	}
 	
 }

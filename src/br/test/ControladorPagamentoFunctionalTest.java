@@ -4,14 +4,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import br.action.ControladorPagamento;
+import br.model.AluguelDAO;
 import br.model.Carro;
 import br.model.CarroDAO;
+import br.model.ReservaDAO;
 
 public class ControladorPagamentoFunctionalTest extends FunctionalTest
 {
 	private ControladorPagamento controladorPagamento;
 	
 	private CarroDAO carroDAO;
+	private AluguelDAO aluguelDAO;
+	private ReservaDAO reservaDAO;
 	
 	@Test
 	public void testControladorPagamento_VenderCarro_VeiculoDisponivel_DeveSetarVendidoParaTrueEDisponivelParaFalse()
@@ -19,6 +23,33 @@ public class ControladorPagamentoFunctionalTest extends FunctionalTest
 		controladorPagamento = new ControladorPagamento();
 		
 		carroDAO = new CarroDAO();
+		
+		Carro veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertEquals(veiculo.getDisponivel(), "true");
+		Assert.assertEquals(veiculo.getVendido(), "false");
+		
+		controladorPagamento.venderCarro(veiculo, null);
+		
+		carroDAO = new CarroDAO();
+		
+		veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
+		
+		Assert.assertEquals(veiculo.getDisponivel(), "false");
+		Assert.assertEquals(veiculo.getVendido(), "true");
+		
+		veiculo.setDisponivel("true");
+		veiculo.setVendido("false");
+		carroDAO.atualizarVeiculo(veiculo);
+	}
+	
+	//@Test
+	public void testControladorPagamento_PagarAluguel_DeveSetarPagoParaTrueEFormaPagamentoParaDinheiro()
+	{
+		controladorPagamento = new ControladorPagamento();
+		
+		aluguelDAO = new AluguelDAO();
+		reservaDAO = new ReservaDAO();
 		
 		Carro veiculo = carroDAO.recuperarCarroPorPlaca("TST-1234");
 		

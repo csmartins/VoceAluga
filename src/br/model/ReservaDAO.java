@@ -89,6 +89,4 @@ public class ReservaDAO extends AbstractDAO
 		
 		transaction.commit();
 	}
-
-	
 }

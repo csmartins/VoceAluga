@@ -56,4 +56,20 @@ public class ControladorAluguelVeiculoPorReserva {
 			return false;
 		}
 	}
+	
+	public String reservaJaAlugada(Reserva reserva)
+	{
+		AluguelDAO aluguelDAO = new AluguelDAO();
+		
+		if(aluguelDAO.recuperarAluguelPorReserva(reserva).isEmpty())
+		{
+			return "Não";
+		}
+		else
+		{
+			return "Sim";
+		}
+	}
+	
+	
 }

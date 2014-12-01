@@ -87,16 +87,20 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		JLabel lblDataDeFim = new JLabel("Data de Fim:" + controladorInformacoesReserva.getDataFim());
 		
 		JLabel lblPagoAntecipadamente = new JLabel("Pago antecipadamente: "  + controladorInformacoesReserva.getPagoAntecipadamente());
+
+		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
+		
+		JLabel lblReservaAlugada = new JLabel("Reserva efetivada: " + controladorAluguelVeiculoPorReserva.reservaJaAlugada(reserva));
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		criarBotaoCancelar(btnCancelar);
 		btnCancelar.setVisible(controladorInformacoesReserva.reservaPodeSerCancelada());
 		
-		JLabel lblValor = new JLabel("Valor: " + controladorInformacoesReserva.getValor());
 		
 		JButton btnAlugar = new JButton("Alugar");
 		criarEventoBotaoAlugar(btnAlugar);
-		btnAlugar.setVisible(controladorAluguelVeiculoPorReserva.reservaPodeSerAlugada());
+		btnAlugar.setVisible(isReservaAlugavelOuJaEfetivada(reserva));
+		
 		
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);
 		gl_pnlInfoReserva.setHorizontalGroup(
@@ -116,7 +120,8 @@ public class InformacoesReservaFrame extends JInternalFrame {
 								.addGroup(gl_pnlInfoReserva.createSequentialGroup()
 									.addComponent(btnCancelar)
 									.addGap(34)
-									.addComponent(btnAlugar)))))
+									.addComponent(btnAlugar))
+								.addComponent(lblReservaAlugada, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_pnlInfoReserva.setVerticalGroup(
@@ -132,7 +137,9 @@ public class InformacoesReservaFrame extends JInternalFrame {
 					.addComponent(lblValor)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblPagoAntecipadamente)
-					.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(lblReservaAlugada)
+					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 					.addGroup(gl_pnlInfoReserva.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnCancelar)
 						.addComponent(btnAlugar))
@@ -220,6 +227,10 @@ public class InformacoesReservaFrame extends JInternalFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 
+	private boolean isReservaAlugavelOuJaEfetivada(Reserva reserva) {
+		return controladorAluguelVeiculoPorReserva.reservaPodeSerAlugada() || isReservaEfetivada(reserva);
+	}
+
 	private void criarEventoBotaoAlugar(JButton btnAlugar) {
 		btnAlugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -229,7 +240,6 @@ public class InformacoesReservaFrame extends JInternalFrame {
 					dispose();
 					return;
 				}
-				
 				controladorAluguelVeiculoPorReserva.alugar();
 				
 				Utils.exibirMensagem("Carro alugado com sucesso");
@@ -249,6 +259,18 @@ public class InformacoesReservaFrame extends JInternalFrame {
 				dispose();
 			}
 		});
+	}
+	
+	private boolean isReservaEfetivada(Reserva reserva)
+	{
+		if(controladorAluguelVeiculoPorReserva.reservaJaAlugada(reserva).equals("Sim"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	private void criarBotaoVoltar(JButton btnVoltar) {

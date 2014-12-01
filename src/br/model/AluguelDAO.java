@@ -1,5 +1,8 @@
 package br.model;
 
+import java.util.List;
+
+
 public class AluguelDAO extends AbstractDAO 
 {
 	public AluguelDAO()
@@ -18,5 +21,18 @@ public class AluguelDAO extends AbstractDAO
 		entityManager.close();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Aluguel> recuperarAluguelPorReserva(Reserva reserva)
+	{
+		String query = "select * from Aluguel "
+							+ "where reserva_oid = "
+								+ "(select reserva_oid from Reserva where reserva_oid = :reserva_oid)";
+		
+		List<Aluguel> aluguel = entityManager.createNativeQuery(query, Reserva.class).setParameter("reserva_oid", reserva.getReservaOid())
+																					 .getResultList();
+		
+		
+		return aluguel;
+	}
 	
 }

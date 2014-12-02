@@ -1,21 +1,23 @@
 package br.view;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import br.action.ControladorPagamento;
 import br.model.Aluguel;
 import br.model.TaxaPagamento;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import br.utils.Utils;
 
 public class PagamentoAluguelFrame extends JInternalFrame
 {
@@ -29,7 +31,6 @@ public class PagamentoAluguelFrame extends JInternalFrame
 	private JCheckBox chckbxRetorno;
 	private JCheckBox chckbxDanificao;
 	
-	private JTextField cmpTextParcelas;
 	private JTextField txtParcelas;
 	
 	public PagamentoAluguelFrame(Aluguel aluguel)
@@ -53,7 +54,7 @@ public class PagamentoAluguelFrame extends JInternalFrame
 		cmbBoxTaxaPagamento = new JComboBox<TaxaPagamento>();
 		DefaultComboBoxModel<TaxaPagamento> comboBoxModel = new DefaultComboBoxModel<TaxaPagamento>(TaxaPagamento.values());
 		cmbBoxTaxaPagamento.setModel(comboBoxModel);
-		cmbBoxTaxaPagamento.setBounds(12, 53, 110, 24);
+		cmbBoxTaxaPagamento.setBounds(145, 102, 110, 24);
 		panelTaxasAdicionais.add(cmbBoxTaxaPagamento);
 		
 		JLabel lblTaxas = new JLabel("Taxas Adicionais");
@@ -61,15 +62,15 @@ public class PagamentoAluguelFrame extends JInternalFrame
 		panelTaxasAdicionais.add(lblTaxas);
 		
 		JLabel lblTaxaDePagamento = new JLabel("Taxa de pagamento");
-		lblTaxaDePagamento.setBounds(140, 58, 147, 15);
+		lblTaxaDePagamento.setBounds(273, 107, 147, 15);
 		panelTaxasAdicionais.add(lblTaxaDePagamento);
 		
-		chckbxRetorno = new JCheckBox("Retorno");
-		chckbxRetorno.setBounds(315, 54, 82, 23);
+		chckbxRetorno = new JCheckBox("Retorno na filial");
+		chckbxRetorno.setBounds(92, 54, 199, 23);
 		panelTaxasAdicionais.add(chckbxRetorno);
 		
 		chckbxDanificao = new JCheckBox("Danificação");
-		chckbxDanificao.setBounds(421, 54, 129, 23);
+		chckbxDanificao.setBounds(341, 54, 129, 23);
 		panelTaxasAdicionais.add(chckbxDanificao);
 		
 		JPanel panelPagarDinheiro = new JPanel();
@@ -130,12 +131,15 @@ public class PagamentoAluguelFrame extends JInternalFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				String parcelas = cmpTextParcelas.getText();
+				String parcelas = txtParcelas.getText();
 				
 				controladorPagamento.adicionarTaxas(aluguel, cmbBoxTaxaPagamento.getSelectedItem().toString(), chckbxRetorno.isSelected(), chckbxDanificao.isSelected());
 				
 				controladorPagamento.pagarAluguelCredito(aluguel, parcelas);
+				
+				finalizarPagamento();
 			}
+
 		});
 	}
 
@@ -148,6 +152,8 @@ public class PagamentoAluguelFrame extends JInternalFrame
 				controladorPagamento.adicionarTaxas(aluguel, cmbBoxTaxaPagamento.getSelectedItem().toString(), chckbxRetorno.isSelected(), chckbxDanificao.isSelected());
 				
 				controladorPagamento.pagarAluguel(aluguel, "Débito");
+				
+				finalizarPagamento();
 			}
 		});
 	}
@@ -161,7 +167,16 @@ public class PagamentoAluguelFrame extends JInternalFrame
 				controladorPagamento.adicionarTaxas(aluguel, cmbBoxTaxaPagamento.getSelectedItem().toString(), chckbxRetorno.isSelected(), chckbxDanificao.isSelected());
 				
 				controladorPagamento.pagarAluguel(aluguel, "Dinheiro");
+				
+				finalizarPagamento();
 			}
 		});
+	}
+	
+	private void finalizarPagamento()
+	{
+		Utils.exibirMensagem(controladorPagamento.getMensagens());
+		
+		dispose();
 	}
 }

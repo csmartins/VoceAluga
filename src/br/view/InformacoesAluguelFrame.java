@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.BevelBorder;
@@ -16,15 +18,24 @@ import br.action.ControladorInformacoesAluguel;
 import br.model.Aluguel;
 import br.utils.Utils;
 
-public class InformacoesAluguelFrame extends JInternalFrame {
+public class InformacoesAluguelFrame extends JInternalFrame 
+{
 	private ControladorInformacoesAluguel controladorInformacoesAluguel;
 	private ConsultaAluguelFrame frameConsultaAluguel;
+	
+	private Aluguel aluguel;
+	
+	private JDesktopPane desktopPane;
 	
 	/**
 	 * Create the frame.
 	 */
-	public InformacoesAluguelFrame(Aluguel aluguel, ConsultaAluguelFrame frame) {
+	public InformacoesAluguelFrame(Aluguel aluguel, ConsultaAluguelFrame frame, JDesktopPane desktopPane) 
+	{
 		this.frameConsultaAluguel = frame;
+		this.aluguel = aluguel;
+		
+		this.desktopPane = desktopPane;
 		
 		setBorder(null);
 		setClosable(true);
@@ -90,6 +101,10 @@ public class InformacoesAluguelFrame extends JInternalFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		criarBotaoCancelar(btnCancelar);
 		
+		JButton btnPagar = new JButton("Pagar");
+		criarBotaoPagarAluguel(btnPagar);
+		btnPagar.setVisible(!aluguel.isPago());
+		
 		GroupLayout gl_pnlInfoReserva = new GroupLayout(pnlInfoReserva);
 		gl_pnlInfoReserva.setHorizontalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
@@ -107,9 +122,10 @@ public class InformacoesAluguelFrame extends JInternalFrame {
 								.addComponent(lblPago)
 								.addGroup(gl_pnlInfoReserva.createSequentialGroup()
 									.addComponent(btnCancelar)
-									.addGap(34)))))
-									.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(btnPagar, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))))
+					.addContainerGap())
+		);
 		gl_pnlInfoReserva.setVerticalGroup(
 			gl_pnlInfoReserva.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlInfoReserva.createSequentialGroup()
@@ -123,10 +139,10 @@ public class InformacoesAluguelFrame extends JInternalFrame {
 					.addComponent(lblValor)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblPago)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED, 59, Short.MAX_VALUE)
 					.addGroup(gl_pnlInfoReserva.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnCancelar))
+						.addComponent(btnCancelar)
+						.addComponent(btnPagar))
 					.addContainerGap())
 		);
 		pnlInfoReserva.setLayout(gl_pnlInfoReserva);
@@ -211,12 +227,36 @@ public class InformacoesAluguelFrame extends JInternalFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 
+	private void criarBotaoPagarAluguel(JButton btnPagar)
+	{
+		btnPagar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				try
+				{
+					PagamentoAluguelFrame pagamentoAluguelFrame = new PagamentoAluguelFrame(aluguel);
+					desktopPane.add(pagamentoAluguelFrame);
+					pagamentoAluguelFrame.show();
+					pagamentoAluguelFrame.setLocation(0, 0);
+					
+					dispose();
+				}
+				catch(Exception e)
+				{
+					JOptionPane.showMessageDialog(null, "Ocorreu algum erro, tente novamente.");
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	private void criarBotaoCancelar(JButton btnCancelar) {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				controladorInformacoesAluguel.cancelar();
 				
-				Utils.exibirMensagem("Reserva cancelada com sucesso");
+				Utils.exibirMensagem("Aluguel cancelada com sucesso");
 				frameConsultaAluguel.atualizarListaAluguel();
 				dispose();
 			}

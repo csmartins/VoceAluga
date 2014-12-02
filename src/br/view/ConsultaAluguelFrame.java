@@ -168,8 +168,7 @@ public class ConsultaAluguelFrame extends JInternalFrame {
 					Aluguel aluguel = controladorConsultaAluguel
 							.getAluguel(aluguelSelecionado);
 
-					InformacoesAluguelFrame informacoesAluguelFrame = new InformacoesAluguelFrame(
-							aluguel, frame);
+					InformacoesAluguelFrame informacoesAluguelFrame = new InformacoesAluguelFrame(aluguel, frame, desktopPane);
 					desktopPane.add(informacoesAluguelFrame);
 					informacoesAluguelFrame.show();
 					informacoesAluguelFrame.setLocation(0, 0);

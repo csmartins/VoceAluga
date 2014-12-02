@@ -28,6 +28,7 @@ public class ControladorPagamento
 	public ControladorPagamento()
 	{
 		carroDAO = new CarroDAO();
+		aluguelDAO = new AluguelDAO();
 	}
 	
 	public void venderCarro(Carro veiculo, String formaPagamento)
@@ -61,7 +62,9 @@ public class ControladorPagamento
 		
 		adicionarTaxaDanificacao();
 		
-		mensagens = mensagens + "Valor total: R$ " + pagamentoAluguelTotal.toString();
+		mensagens = mensagens + "Valor total: R$ " + pagamentoAluguelTotal.toString() + "\n";
+		
+		mensagens = mensagens + "Pagamento realizado com sucesso. Um email foi enviado para o cliente com o relatorio do pagamento e a nota fiscal";
 		
 	}
 
@@ -71,7 +74,7 @@ public class ControladorPagamento
 		{
 			pagamentoAluguelTotal = pagamentoAluguelTotal.add(pagamentoAluguelTotal.multiply(BigDecimal.valueOf(0.1)));
 			
-			mensagens = mensagens + "Adicionada taxa para veiculo danificado.";
+			mensagens = mensagens + "Adicionada taxa para veiculo danificado.\n";
 		}
 	}
 
@@ -81,7 +84,7 @@ public class ControladorPagamento
 		{
 			pagamentoAluguelTotal = pagamentoAluguelTotal.add(pagamentoAluguelTotal.multiply(BigDecimal.valueOf(0.1)));
 			
-			mensagens = mensagens + "Adicionada taxa para veiculo retornado em outra filial.";
+			mensagens = mensagens + "Adicionada taxa para veiculo retornado em outra filial.\n";
 		}
 		
 	}
@@ -113,10 +116,14 @@ public class ControladorPagamento
 		if(taxaPagamento.equals("Adiantado"))
 		{
 			pagamentoAluguelTotal = pagamentoAluguelTotal.subtract(pagamentoAluguelTotal.multiply(BigDecimal.valueOf(0.1)));
+			
+			mensagens = mensagens + "Adicionado desconto para pagamento Adiantado.\n";
 		}
 		if(taxaPagamento.equals("Atrasado"))
 		{
 			pagamentoAluguelTotal = pagamentoAluguelTotal.add(pagamentoAluguelTotal.multiply(BigDecimal.valueOf(0.1)));
+			
+			mensagens = mensagens + "Adicionada taxa para pagamento atrasado.\n";
 		}
 	}
 
@@ -134,6 +141,16 @@ public class ControladorPagamento
 		
 		pagarAluguel(aluguel, formaPagamento);
 		
+	}
+
+	public String getMensagens()
+	{
+		return mensagens;
+	}
+
+	public void setMensagens(String mensagens)
+	{
+		this.mensagens = mensagens;
 	}
 
 }
